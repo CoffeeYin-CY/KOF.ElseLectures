@@ -1,0 +1,1 @@
+jQuery(function(){jQuery(".misaka-status-status").each(function(){var a=$(this);""==a.text().trim()&&a.removeClass().addClass("misaka-status-status").addClass("misaka-status-label-operational").html("Operational")})});

@@ -1,0 +1,2635 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://www.w3cschool.cn/html5/html5-intro.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>开始学习HTML5_w3cschool</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="keywords" content="开始学习HTML5">
+<meta name="description" content="
+    
+         HTML5 简介
+
+        
+            
+            HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。
+            HTML5的设计目的是为了在移动设备上支持多媒体。
+        _来自HTML5 教程，w3cschool编程狮。">
+<link href="./toc_w3cschool_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./toc_w3cschool_files/iconfont.css">
+<link rel="stylesheet" href="./toc_w3cschool_files/w3.css">
+<link rel="stylesheet" href="./toc_w3cschool_files/style-kn-project-view.css" type="text/css">
+<link rel="stylesheet" href="./toc_w3cschool_files/style-theme.css" type="text/css">
+<link rel="stylesheet" href="./toc_w3cschool_files/project.css">
+<link href="./toc_w3cschool_files/default.css" rel="stylesheet" type="text/css">
+<script src="./toc_w3cschool_files/push.js"></script><script src="./toc_w3cschool_files/hm.js"></script><script src="./toc_w3cschool_files/highlight.pack.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="https://www.w3cschool.cn/statics/images/favicon.ico">
+<script src="./toc_w3cschool_files/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="./toc_w3cschool_files/jquery.slimscroll.1.38.min.js" type="text/javascript"></script>
+<script src="./toc_w3cschool_files/project.leftbox.js" type="text/javascript"></script><style>.left-container {width:270px;}.left-drager{left:270px;}.main-container{margin-left:270px;}#pro-footer{margin-left:270px;}.space-tools-section{width:270px;}</style>
+<style type="text/css">
+/*点赞*/
+.islike{
+float: right;
+display: inline-block;
+line-height: 30px;
+padding: 0 5px;
+vertical-align: middle;
+color: #333
+}
+.islike a{
+color: #3a3838;
+text-decoration: none;
+}
+.isdone{
+color: #ed9c28;
+}
+
+/*点赞结束*/
+
+/* 微信登录框 */
+.modal-mask, .modal-wrap { position: fixed; top: 0; left: 0; right: 0; bottom: 0; }
+.modal-mask { z-index: 1998; background-color: rgba(0, 0, 0, .45); }
+.modal-wrap { z-index: 1999; }
+
+.modal { position: relative; top: 100px; width: 520px; margin: 0 auto; border-top: 2px solid #fe6a00; border-radius: 3px; background-color: #fff; line-height: 1.5; }
+.modal-close { position: absolute; top: 14px; right: 12px; color: #999; cursor: pointer; transition: color .24s; }
+.modal-close > .i-icon { font-size: 21px; vertical-align: top; }
+.modal-close:hover { color: #444; }
+.modal-header { padding: 14px 16px; border-bottom: 1px solid #e8eaec; color: #17233d; font-size: 16px; font-weight: 700; line-height: 21px; }
+.modal-body { padding: 16px; font-size: 14px; }
+.modal-footer { padding: 12px 18px; border-top: 1px solid #e8eaec; text-align: right; }
+.modal-footer .modal-btn { height: 32px; padding: 0 15px; border-radius: 4px; color: #fff; font-size: 14px; cursor: pointer; -webkit-transition: all .24s; transition: all .24s; }
+
+.modal-footer .modal-btn-primary { background-color: #fe6a00; border: 1px solid #fe6a00; }
+.modal-footer .modal-btn-primary:hover { background-color: #fea400; border-color: #fea400; }
+
+@media (max-width: 576px) {
+.modal { width: auto; margin: 0 10px; }
+}
+
+#wxlogin .modal-body { text-align: center; }
+#wxlogin .modal-body .qrcode { width: 430px; height: 430px; margin: 0 auto; }
+#wxlogin .modal-body .info { margin-top: 12px; }
+</style><link type="text/css" rel="stylesheet" href="./toc_w3cschool_files/paypraise.css"><script src="./toc_w3cschool_files/share.js"></script><link rel="stylesheet" href="./toc_w3cschool_files/share_style0_16.css"></head>
+
+<body>
+<div id="full-height-container" class="project-container color-theme-white">
+<!--控制本地颜色主题样式-->
+<script type="text/javascript">
+var tempColor = $.cookie("color");
+if (tempColor != undefined) {
+$("#full-height-container").addClass(tempColor);
+}
+</script>
+<!-- 教程内容页头部 -->
+<!--header start--> 
+<div id="header" class="header-with-search">
+<div id="header_item">
+<div id="header_index">
+<div id="header-l">
+<a href="https://www.w3cschool.cn/" title="w3cschool" class="logo"><img src="./toc_w3cschool_files/header-logo.png" alt="w3cschool"></a>
+<ul class="header-menu">
+<li><a href="https://www.w3cschool.cn/tutorial" title="编程入门教程">编程入门教程</a></li>
+<li><a href="https://www.w3cschool.cn/courses/" title="编程课程">编程课程</a></li>
+<li><a href="https://www.w3cschool.cn/codecamp/" title="编程实战">编程实战</a></li> 
+<li><a href="https://www.w3cschool.cn/exam/" title="编程题库">编程题库</a></li>
+<li><a href="https://123.w3cschool.cn/webtools" target="_blank" title="w3cschool在线工具集合">在线工具</a></li>
+<li><a href="https://www.w3cschool.cn/vip?fcode=headermenu" title="VIP会员" class="header-menu-vip ">VIP会员<i class="hot-icon">HOT</i></a></li>
+</ul>
+</div>
+
+<div class="fr h-right">
+<div class="fl mobile">
+<a class="link" href="https://www.w3cschool.cn/download" target="_blank" title="App下载">
+<i class="i-icon i-icon-mobile"></i>App下载
+</a>
+<div class="dropdown">
+<div class="dropdown-inner">
+<div class="text-center dropdown-content">
+<div class="qrcode">
+<img src="./toc_w3cschool_files/app-qrcode2.png" alt="APP二维码" width="150" height="150">
+<p>扫码下载编程狮APP</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="fl sig-box"><div><a class="link" href="https://www.w3cschool.cn/register?refer=/html5/html5-intro.html">注册</a><span class="sep">|</span><a class="link" href="https://www.w3cschool.cn/login?refer=/html5/html5-intro.html">登录</a></div></div>
+</div>
+
+<div class="fr searchbox">
+<form action="https://www.w3cschool.cn/search" target="_self">
+<input type="text" name="w" class="box" id="searched_content" placeholder="输入关键字搜索...">
+<button type="submit" class="button"></button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="register-Box" id="register-Box" style="display: none;">
+<div class="register-Box-content">
+<div class="register-Box-top">
+<span class="register-Box-title">注册成功</span>
+<span onclick="closeDialogBox(this)" class="feedback-Box-close">X</span>
+</div>
+<div class="register-Box-info">
+<div class="register-Box-left" style="float: left;">
+<img class="register-cover" src="./toc_w3cschool_files/avatar_14.jpg">
+</div>
+<div class="register-Box-right">
+
+<p class="register-userinfo-title">
+<i class="usertype-ico-1"></i><span>W3Cschool</span>
+</p>
+<p class="register-userinfo-info">恭喜您成为首批注册用户</p>
+<p class="register-userinfo-info">获得88经验值奖励</p>
+<button class="search-s" onclick="closeDialogBox(this)" id="registerSubmit">马上体验</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+var apppath = '/html5/html5-intro.html';
+var domain  = '//www.w3cschool.cn';
+</script>
+<!--header end-->
+ 
+<div id="m-splitter">
+<div class="m-splitter-left left-container" style="width: 270px; height: 591px;">
+<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: inherit; height: 591px;"><div class="fixed-sidebar mscroller" style="width: inherit; height: 591px; overflow: hidden;">
+<div class="splitter-sidebar">
+<div class="sidebar-space-info">
+<a href="https://www.w3cschool.cn/html5" title="HTML5 教程">
+<div class="sidebar-pro-wrapper">
+<div class="sidebar-pro-container">
+<div class="sidebar-pro-img">
+<span><img class="pimg-cover" alt="HTML5 教程" src="./toc_w3cschool_files/cover_html5.png"></span>
+</div>
+</div>
+</div>
+<div class="pro-name-container">
+<div class="sidebar-pro-name">
+<span>HTML5 教程</span>
+</div>
+</div>
+</a>
+</div>
+<div class="sidebar-pro-nav">
+<ul class="page-sidebar-menu">
+<li class="pro-m">
+<a class="btn-thumbs-up" href="javascript:;" onclick="isProjectLike()">
+<i class="icon-thumbs-up"></i> <span id="likestatus">赞</span>
+</a>
+</li>
+<li class="pro-m">
+<a id="hbstar" href="javascript:;" onclick="isProjectStar()" data-type="star"><i class="icon-star-empty"></i> <span>收藏</span></a>
+</li>
+<li class="pro-m">
+<a href="javascript:;" title="分享" class="share-btn  popup_more bdsharebuttonbox bdshare-button-style0-16" data-cmd="more" data-bd-bind="1581433500342"><i class="icon-share"></i> 分享</a>
+</li>
+</ul>
+</div>
+<div class="sidebar-menu">
+<ul>
+<li class="nav-item"><a href="https://www.w3cschool.cn/html5/list/" title="更多文章"><i class="icon-bookmark-empty"></i> <span class="nav-item-label">更多文章</span></a></li>
+</ul>
+</div>
+<!--左侧栏导航 start-->
+<div class="sidebar-nav">
+<ul class="treeth">
+<li class="sidebar-nav-tree active" target="sidebar-tree-content"><a href="javascript:;" class="text" title="目录"><i class="icon icon-th-list"></i> <span class="title">目录</span></a></li>
+<li class="sidebar-nav-search" target="search-box"><a href="javascript:;" class="text" title="搜索"><i class="icon icon-search"></i> <span class="title">搜索</span></a></li>
+<li class="sidebar-nav-star" target="stars-box"><a href="javascript:;" class="text" title="书签"><i class="icon icon-bookmark"></i> <span class="title">书签</span></a></li>
+</ul>
+</div>
+<!--左侧栏导航 end-->
+<div style="clear:both"></div>
+<div class="sidebar-content">                                          
+<div class="sidebar-tree">
+<div class="sidebar-tree-content" style="display: block;">
+<div class="dd" id="nestable_handbook" data-tid="196" data-id="handbook">
+<ol class="dd-list">
+
+
+    
+<li class="dd-item" data-id="pso92f21">
+<div class="dd-content folder-open ">
+<i class="folder icon-folder-open"></i>
+                                 
+<a title="HTML5 教程">HTML5 教程</a>
+</div>
+<ol class="dd-list">
+                          
+
+
+    
+<li class="dd-item" data-id="html5-intro">
+<div class="dd-content   active ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-intro.html" title="开始学习HTML5">开始学习HTML5</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="g5nfhflc">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/g5nfhflc.html" title="HTML5 浏览器支持">HTML5 浏览器支持</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-new-element">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-new-element.html" title="HTML5 新元素">HTML5 新元素</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="q2ybmfle">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/q2ybmfle.html" title="HTML5 Canvas">HTML5 Canvas</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-svg">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-svg.html" title="HTML5 内联 SVG">HTML5 内联 SVG</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="bxieufld">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/bxieufld.html" title="HTML5 MathML">HTML5 MathML</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-draganddrop">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-draganddrop.html" title="HTML5 拖放">HTML5 拖放</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-geolocation">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-geolocation.html" title="HTML5 地理定位">HTML5 地理定位</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-video">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-video.html" title="HTML5 Video(视频)">HTML5 Video(视频)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-audio">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-audio.html" title="HTML5 Audio(音频)">HTML5 Audio(音频)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-form-input-types">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-form-input-types.html" title="HTML5 Input 类型">HTML5 Input 类型</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-form-elements">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-form-elements.html" title="HTML5 表单元素">HTML5 表单元素</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-form-attributes">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-form-attributes.html" title="HTML5 表单属性">HTML5 表单属性</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-semantic-elements">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-semantic-elements.html" title="HTML5 语义元素">HTML5 语义元素</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-webstorage">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-webstorage.html" title="HTML5 Web 存储">HTML5 Web 存储</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-web-sql">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-web-sql.html" title="HTML5 Web SQL">HTML5 Web SQL</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-app-cache">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-app-cache.html" title="HTML5 应用程序缓存">HTML5 应用程序缓存</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-webworkers">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-webworkers.html" title="HTML5 Web Workers">HTML5 Web Workers</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-serversentevents">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-serversentevents.html" title="HTML5 SSE">HTML5 SSE</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-websocket">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-websocket.html" title="HTML5 WebSocket">HTML5 WebSocket</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-syntax">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-syntax.html" title="HTML5 代码规范">HTML5 代码规范</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li></ol></li>
+    
+<li class="dd-item" data-id="tw9n1qf2">
+<div class="dd-content folder-open ">
+<i class="folder icon-folder-open"></i>
+                                 
+<a title="HTML5 参考手册">HTML5 参考手册</a>
+</div>
+<ol class="dd-list">
+                          
+
+
+    
+<li class="dd-item" data-id="4hxo1qf4">
+<div class="dd-content folder-open ">
+<i class="folder icon-folder-open"></i>
+                                 
+<a title="HTML5 标签">HTML5 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+
+    
+<li class="dd-item" data-id="html5-doctype">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-doctype.html" title="HTML5 &lt;!DOCTYPE&gt; 标签">HTML5 &lt;!DOCTYPE&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-a">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-a.html" title="HTML5 &lt;a&gt; 标签">HTML5 &lt;a&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-area">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-area.html" title="HTML5 &lt;area&gt; 标签">HTML5 &lt;area&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-abbr">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-abbr.html" title="HTML5 &lt;abbr&gt; 标签">HTML5 &lt;abbr&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-applet">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-applet.html" title="HTML5 &lt;applet&gt; 标签">HTML5 &lt;applet&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-article">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-article.html" title="HTML5 &lt;article&gt;标签">HTML5 &lt;article&gt;标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-aside">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-aside.html" title="HTML5 &lt;aside&gt; 标签">HTML5 &lt;aside&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-address">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-address.html" title="HTML5 &lt;address&gt; 标签">HTML5 &lt;address&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-acronym">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-acronym.html" title="HTML5 &lt;acronym&gt; 标签 (已废弃)">HTML5 &lt;acronym&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-b">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-b.html" title="HTML5 &lt;b&gt; 标签">HTML5 &lt;b&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-basefont">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-basefont.html" title="HTML5 &lt;basefont&gt; 标签 (已废弃)">HTML5 &lt;basefont&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-base">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-base.html" title="HTML5 &lt;base&gt; 标签">HTML5 &lt;base&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-blockquote">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-blockquote.html" title="HTML5 &lt;blockquote&gt; 标签">HTML5 &lt;blockquote&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-br">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-br.html" title="HTML5  &lt;br /&gt;标签">HTML5  &lt;br /&gt;标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-big">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-big.html" title="HTML5 &lt;big&gt; 标签 (已废弃)">HTML5 &lt;big&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-button">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-button.html" title="HTML5 &lt;button&gt; 标签">HTML5 &lt;button&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-bdo">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-bdo.html" title="HTML5 &lt;bdo&gt; 标签">HTML5 &lt;bdo&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-center">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-center.html" title="HTML5 &lt;center&gt; 标签 (已废弃)">HTML5 &lt;center&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-command">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-command.html" title="HTML5 &lt;command&gt; 标签 (已废弃)">HTML5 &lt;command&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-col">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-col.html" title="HTML5 &lt;col&gt; 标签">HTML5 &lt;col&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-colgroup">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-colgroup.html" title="HTML5 &lt;colgroup&gt; 标签">HTML5 &lt;colgroup&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-caption">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-caption.html" title="HTML5 &lt;caption&gt; 标签">HTML5 &lt;caption&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-phrase-elements">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-phrase-elements.html" title="HTML5 &lt;em&gt; &lt;strong&gt; &lt;dfn&gt; &lt;code&gt; &lt;samp&gt; &lt;kbd&gt; &lt;var&gt; &lt;cite&gt; 标签">HTML5 &lt;em&gt; &lt;strong&gt; &lt;dfn&gt; &lt;code&gt; &lt;samp&gt; &lt;kbd&gt; &lt;var&gt; &lt;cite&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-ul">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-ul.html" title="HTML5 &lt;ul&gt; 标签">HTML5 &lt;ul&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-dl">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-dl.html" title="HTML5 &lt;dl&gt; 标签">HTML5 &lt;dl&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-del">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-del.html" title="HTML5 &lt;del&gt; 标签">HTML5 &lt;del&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-dd">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-dd.html" title="HTML5 &lt;dd&gt; 标签">HTML5 &lt;dd&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-details">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-details.html" title="HTML5 &lt;details&gt; 标签">HTML5 &lt;details&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-div">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-div.html" title="HTML5 &lt;div&gt; 标签">HTML5 &lt;div&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-dir">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-dir.html" title="HTML5 &lt;dir&gt; 标签 (已废弃)">HTML5 &lt;dir&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-embed">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-embed.html" title="HTML5 &lt;embed&gt; 标签">HTML5 &lt;embed&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-frameset">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-frameset.html" title="HTML5 &lt;frameset&gt; 标签 (已废弃)">HTML5 &lt;frameset&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-figcaption">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-figcaption.html" title="HTML5 &lt;figcaption&gt; 标签">HTML5 &lt;figcaption&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-form">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-form.html" title="HTML5 &lt;form&gt; 标签">HTML5 &lt;form&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-frame">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-frame.html" title="HTML5 &lt;frame&gt; 标签 (已废弃)">HTML5 &lt;frame&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-figure">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-figure.html" title="HTML5 &lt;figure&gt; 标签">HTML5 &lt;figure&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-footer">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-footer.html" title="HTML5 &lt;footer&gt; 标签">HTML5 &lt;footer&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-fieldset">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-fieldset.html" title="HTML5 &lt;fieldset&gt; 标签">HTML5 &lt;fieldset&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-hgroup">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-hgroup.html" title="HTML5 &lt;hgroup&gt; 标签">HTML5 &lt;hgroup&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-hr">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-hr.html" title="HTML5 &lt;hr&gt; 标签">HTML5 &lt;hr&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-hn">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-hn.html" title="HTML5 &lt;h1&gt; 至 &lt;h6&gt; 标签">HTML5 &lt;h1&gt; 至 &lt;h6&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-header">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-header.html" title="HTML5 &lt;header&gt; 标签">HTML5 &lt;header&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-html">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-html.html" title="HTML5 &lt;html&gt; 标签">HTML5 &lt;html&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-head">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-head.html" title="HTML5 &lt;head&gt; 标签">HTML5 &lt;head&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-i">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-i.html" title="HTML5 &lt;i&gt; 标签">HTML5 &lt;i&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-iframe">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-iframe.html" title="HTML5 &lt;iframe&gt; 标签">HTML5 &lt;iframe&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-input">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-input.html" title="HTML5 &lt;input&gt; 标签">HTML5 &lt;input&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-img">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-img.html" title="HTML5 &lt;img&gt; 标签">HTML5 &lt;img&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-ins">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-ins.html" title="HTML5 &lt;ins&gt; 标签">HTML5 &lt;ins&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-keygen">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-keygen.html" title="HTML5 &lt;keygen&gt; 标签 (已废弃)">HTML5 &lt;keygen&gt; 标签 (已废弃)</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-link">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-link.html" title="HTML5 &lt;link&gt; 标签">HTML5 &lt;link&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-li">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-li.html" title="HTML5 &lt;li&gt; 标签">HTML5 &lt;li&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-legend">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-legend.html" title="HTML5 &lt;legend&gt; 标签">HTML5 &lt;legend&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-label">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-label.html" title="HTML5 &lt;label&gt; 标签">HTML5 &lt;label&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-map">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-map.html" title="HTML5 &lt;map&gt; 标签">HTML5 &lt;map&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-meta">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-meta.html" title="HTML5 &lt;meta&gt; 标签">HTML5 &lt;meta&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-menu">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-menu.html" title="HTML5 &lt;menu&gt; 标签">HTML5 &lt;menu&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-meter">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-meter.html" title="HTML5 &lt;meter&gt; 标签">HTML5 &lt;meter&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-mark">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-mark.html" title="HTML5 &lt;mark&gt; 标签">HTML5 &lt;mark&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-nav">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-nav.html" title="HTML5 &lt;nav&gt; 标签">HTML5 &lt;nav&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-noscript">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-noscript.html" title="HTML5 &lt;noscript&gt; 标签">HTML5 &lt;noscript&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-ol">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-ol.html" title="HTML5 &lt;ol&gt; 标签">HTML5 &lt;ol&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-object">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-object.html" title="HTML5 &lt;object&gt; 标签">HTML5 &lt;object&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-option">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-option.html" title="HTML5 &lt;option&gt; 标签">HTML5 &lt;option&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-output">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-output.html" title="HTML5 &lt;output&gt; 标签">HTML5 &lt;output&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-optgroup">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-optgroup.html" title="HTML5 &lt;optgroup&gt; 标签">HTML5 &lt;optgroup&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-p">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-p.html" title="HTML5 &lt;p&gt; 标签">HTML5 &lt;p&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-pre">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-pre.html" title="HTML5 &lt;pre&gt; 标签">HTML5 &lt;pre&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-param">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-param.html" title="HTML5 &lt;param&gt; 标签">HTML5 &lt;param&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-progress">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-progress.html" title="HTML5 &lt;progress&gt; 标签">HTML5 &lt;progress&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-q">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-q.html" title="HTML5 &lt;q&gt; 标签">HTML5 &lt;q&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-rp">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-rp.html" title="HTML5 &lt;rp&gt; 标签">HTML5 &lt;rp&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-rt">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-rt.html" title="HTML5 &lt;rt&gt; 标签">HTML5 &lt;rt&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-ruby">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-ruby.html" title="HTML5 &lt;ruby&gt; 标签">HTML5 &lt;ruby&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-s">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-s.html" title="HTML5 &lt;s&gt; 标签">HTML5 &lt;s&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-sup-sub">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-sup-sub.html" title="HTML5 &lt;sub&gt; 和 &lt;sup&gt; 标签">HTML5 &lt;sub&gt; 和 &lt;sup&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-span">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-span.html" title="HTML5 &lt;span&gt; 标签">HTML5 &lt;span&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-small">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-small.html" title="HTML5 &lt;small&gt; 标签">HTML5 &lt;small&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-style">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-style.html" title="HTML5 &lt;style&gt; 标签">HTML5 &lt;style&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-strike">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-strike.html" title="HTML5 &lt;strike&gt; 标签">HTML5 &lt;strike&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-select">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-select.html" title="HTML5 &lt;select&gt; 标签">HTML5 &lt;select&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-source">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-source.html" title="HTML5 &lt;source&gt; 标签">HTML5 &lt;source&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-section">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-section.html" title="HTML5 &lt;section&gt; 标签">HTML5 &lt;section&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-summary">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-summary.html" title="HTML5 &lt;summary&gt; 标签">HTML5 &lt;summary&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-td">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-td.html" title="HTML5 &lt;td&gt; 标签">HTML5 &lt;td&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-th">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-th.html" title="HTML5 &lt;th&gt; 标签">HTML5 &lt;th&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-tt">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-tt.html" title="HTML5 &lt;tt&gt; 标签">HTML5 &lt;tt&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-tr">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-tr.html" title="HTML5 &lt;tr&gt; 标签">HTML5 &lt;tr&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-table">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-table.html" title="HTML5 &lt;table&gt; 标签">HTML5 &lt;table&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-title">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-title.html" title="HTML5 &lt;title&gt; 标签">HTML5 &lt;title&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-tfoot">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-tfoot.html" title="HTML5 &lt;tfoot&gt; 标签">HTML5 &lt;tfoot&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-thead">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-thead.html" title="HTML5 &lt;thead&gt; 标签">HTML5 &lt;thead&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-time">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-time.html" title="HTML5 &lt;time&gt; 标签">HTML5 &lt;time&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-tbody">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-tbody.html" title="HTML5 &lt;tbody&gt; 标签">HTML5 &lt;tbody&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-textarea">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-textarea.html" title="HTML5 &lt;textarea&gt; 标签">HTML5 &lt;textarea&gt; 标签</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li></ol></li></ol></li>
+    
+<li class="dd-item" data-id="a89e1sf3">
+<div class="dd-content folder-open ">
+<i class="folder icon-folder-open"></i>
+                                 
+<a title="拓展阅读">拓展阅读</a>
+</div>
+<ol class="dd-list">
+                          
+
+
+    
+<li class="dd-item" data-id="html5-download">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-download.html" title="《HTML5从入门到精通》中文教程电子书下载">HTML5电子书下载</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-tool">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-tool.html" title="推荐12款程序员必备的HTML5开发工具">HTML5开发工具</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-game2">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-game2.html" title="直接上源码教你做经典HTML5小游戏">HTML5小游戏源码</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-template">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-template.html" title="大家都在找的HTML5模板下载">HTML5模板下载</a>
+</div>
+<ol class="dd-list">
+                          
+
+</ol></li>
+
+    
+<li class="dd-item" data-id="html5-video2">
+<div class="dd-content  ">
+<i class="ic-folder-open2"></i>
+                                 
+<a href="https://www.w3cschool.cn/html5/html5-video2.html" title="序员必知的HTML5 video视频二三事">HTML5 video</a>
+</div>
+<ol class="dd-list">
+                          
+</ol></li>
+</ol>
+</li>
+</ol>
+</div>  
+</div>                                
+<!--  sidebar-tree-content end  -->
+<div class="search-box hide1" style="display: none;">
+<div id="knsearch" class="tab-pane">
+<div class="knsearch-input">
+<input type="text" placeholder="搜索手册内容" name="w" class="input-s">
+<button class="knsearchbtn">搜索</button>
+<!--<button class="kncleanbtn">清空</button>-->
+</div>                    
+<div class="searchres">
+</div>
+<div class="sidebar-tree-dict"></div>
+</div>
+</div>
+<div class="stars-box hide1" style="display: none;">                  
+<div id="kncollect" class="tab-pane">
+<ul class="dd-list">
+<li class="nostar">请登录查看</li>
+</ul>
+</div>
+</div>
+</div>                    
+</div>
+</div>
+<!-- <div class="space-tools-section">
+<div class="tools-button">
+<a href="" class="expand-collapse-trigger"></a>
+</div>
+</div> -->
+</div><div class="slimScrollBar" style="background: rgb(161, 178, 189); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 92.0614px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+</div>
+<div class="splitter-handle left-drager">
+<div class="left-dragger-c splitter-handle-highlight"></div>
+</div>
+<div id="pro-mian" class="main-container font0">
+<div class="project-body">
+<div class="portlet-title pro-title" style="width: 883px;">
+<div class="set-btn-group font-settings pull-left">
+<a href="javascript:;" class="expand-collapse-trigger" title="折叠/展开"><i class="icon-th-list"></i></a>
+<a href="javascript:;" class="toggle-dropdown" title="视觉主题设置"><i class="icon-font"></i></a>
+<div class="set-dropdown-menu docblur" style="display:none;">
+<div class="dropdown-caret">
+<span class="caret-outer"></span>
+<span class="caret-inner"></span>
+</div>
+<div class="buttons font-opt">
+<button class="button size font-reduce" font="reduce" title="缩小字体">A</button>
+<button class="button size font-enlarge" font="enlarge" title="放大字体">A</button>
+</div>
+<div class="buttons bg-color">
+<button class="button theme" color="color-theme-white" title="默认模式">默认</button>
+<button class="button theme" color="color-theme-sepia" title="护眼模式">护眼</button>
+<button class="button theme" color="color-theme-night" title="夜间模式">夜间</button>
+</div>
+</div>
+</div>
+<div class="kn-btn-group pull-right">            
+<span id="content-head-viewcount" class="viewcount-btn"><i class="icon-eye-open"></i> <span>阅读(469.3k)</span></span>
+<a id="knstar" href="javascript:;" onclick="isstar()" data-type="star"><i class="icon-bookmark-empty"></i> <span>书签</span></a>
+<a class="btn-thumbs-up" href="javascript:;" onclick="islike()"><i class="icon-thumbs-up"></i> <span id="likestatus">赞</span>(<span id="likecount">120</span>)</a>
+<a href="javascript:;" title="分享" class="share-btn  popup_more bdsharebuttonbox bdshare-button-style0-16" data-cmd="more" data-bd-bind="1581433500342"><i class="icon-share"></i> 分享</a>
+<a href="https://www.w3cschool.cn/edit/html5/html5-intro" rel="nofollow"><i class="icon-edit"></i> <span>我要纠错</span></a>
+</div>
+</div>
+<div id="pro-mian-header">
+<div class="content-top">
+<h1>开始学习HTML5</h1>
+</div>
+<!--                 <div class="kn-infomation">
+由&nbsp;<span>wadewoshi</span>&nbsp;创建，小路依依 最后一次修改&nbsp;<span>2015-09-26</span>    
+</div>  -->         
+</div>          
+<div class="content-bg">
+<div class="content-intro view-box "><div class="article-body">
+    <div class="article-intro" id="content">
+         <h2>HTML5 <span class="color_h1">简介</span></h2>
+
+        <div class="tutintro">
+            <img src="./toc_w3cschool_files/1456314725446799.gif" alt="HTML" style="height:128px;width:128px">
+            <p>HTML5是HTML最新的修订版本，2014年10月由万维网联盟（<a href="https://baike.baidu.com/item/%E4%B8%87%E7%BB%B4%E7%BD%91%E8%81%94%E7%9B%9F/1458269?fr=aladdin&amp;fromid=216888&amp;fromtitle=w3c" target="_blank" link009994688339163504="1">W3C</a>）完成标准制定。</p>
+            <p>HTML5的设计目的是为了在移动设备上支持多媒体。</p>
+            <p>HTML5简单易学。</p>
+            <p>
+                <br>
+            </p>
+            <p>
+                <br>
+            </p>
+        </div>
+        <hr>
+         <h2>什么是 HTML5?</h2>
+
+        <p>HTML5 是下一代 HTML 标准。</p>
+        <p>HTML , HTML 4.01的上一个版本诞生于 1999 年。自从那以后，Web 世界已经经历了巨变。</p>
+        <p>HTML5 仍处于完善之中。然而，大部分现代浏览器已经具备了某些 HTML5 支持。</p>
+        <p>HTML5 受包括Firefox（火狐浏览器），IE9及其更高版本，Chrome（谷歌浏览器），Safari，Opera等国外主流浏览器的支持；国内的傲游浏览器（Maxthon）， 360浏览器、搜狗浏览器、QQ浏览器、猎豹浏览器等同样具备支持HTML5的能力。</p>
+        <hr>
+         <h2>HTML5 是如何起步的？</h2>
+
+        <p>HTML5 是 W3C 与 <a href="https://baike.baidu.com/item/WHATWG/5803339?fr=aladdin" target="_blank">WHATWG</a> 合作的结果,WHATWG 指 Web Hypertext Application Technology Working Group。。</p>
+        <p>WHATWG 致力于 web 表单和应用程序，而 W3C 专注于 XHTML 2.0。在 2006 年，双方决定进行合作，来创建一个新版本的 HTML。</p>
+        <p>HTML5 中的一些有趣的新特性：</p>
+        <ul class=" list-paddingleft-2">
+            <li>
+                <p>用于绘画的 canvas 元素</p>
+            </li>
+            <li>
+                <p>用于媒介回放的 video 和 audio 元素</p>
+            </li>
+            <li>
+                <p>对本地离线存储的更好的支持</p>
+            </li>
+            <li>
+                <p>新的特殊内容元素，比如 article、footer、header、nav、section</p>
+            </li>
+            <li>
+                <p>新的表单控件，比如 calendar、date、time、email、url、search</p>
+            </li>
+        </ul>
+        <hr>
+         <h2>HTML5 &lt;!DOCTYPE&gt;</h2>
+
+        <p>&lt;!doctype&gt; 声明必须位于 HTML5 文档中的第一行,使用非常简单:</p>
+        <div class="code">&lt;!DOCTYPE html&gt;</div>
+        <hr>
+         <h2>最小的HTML5文档</h2>
+
+        <p>下面是一个简单的HTML5文档：</p><pre lang="html" style="max-width: 100%;"><code class="html hljs xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>        
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>              
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>          
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>文档标题<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>            
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>           
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>          
+  文档内容......         
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>                
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+        <hr>
+         <h2>HTML5的改进</h2>
+
+        <ul class=" list-paddingleft-2">
+            <li>
+                <p>新元素</p>
+            </li>
+            <li>
+                <p>新属性</p>
+            </li>
+            <li>
+                <p>完全支持 CSS3</p>
+            </li>
+            <li>
+                <p>Video 和 Audio</p>
+            </li>
+            <li>
+                <p>2D/3D 制图</p>
+            </li>
+            <li>
+                <p>本地存储</p>
+            </li>
+            <li>
+                <p>本地 SQL 数据</p>
+            </li>
+            <li>
+                <p>Web 应用</p>
+            </li>
+        </ul>
+        <hr>
+         <h2>HTML5 多媒体</h2>
+
+        <p>使用 HTML5 你可以简单的在网页中播放 视频(video)与音频 (audio) 。</p>
+        <ul class=" list-paddingleft-2">
+            <li>
+                <p>HTML5 <a textvalue="video" target="_self" href="https://www.w3cschool.cn/html5/html5-video.html" link009994688339163504="1">&lt;video&gt;</a>
+
+                </p>
+            </li>
+            <li>
+                <p>HTML5 <a textvalue="audio" target="_self" href="https://www.w3cschool.cn/html5/html5-audio.html" link009994688339163504="1">&lt;audio&gt;</a>
+
+                </p>
+            </li>
+        </ul>
+        <hr>
+         <h2>HTML5 应用</h2>
+
+        <p>使用 HTML5 你可以简单地开发应用</p>
+        <ul class=" list-paddingleft-2">
+            <li>
+                <p>本地数据存储</p>
+            </li>
+            <li>
+                <p>访问本地文件</p>
+            </li>
+            <li>
+                <p>本地 SQL 数据</p>
+            </li>
+            <li>
+                <p>缓存引用</p>
+            </li>
+            <li>
+                <p>Javascript 工作者</p>
+            </li>
+            <li>
+                <p>XHTMLHttpRequest 2</p>
+            </li>
+        </ul>
+        <hr>
+         <h2>HTML5 图形</h2>
+
+        <p>使用 HTML5 你可以简单的绘制图形:</p>
+        <ul class=" list-paddingleft-2">
+            <li>
+                <p>使用 <a textvalue="&amp;lt;canvas" target="_self" href="https://www.w3cschool.cn/html5/q2ybmfle.html" link009994688339163504="1">&lt;canvas&gt;</a> 元素</p>
+            </li>
+            <li>
+                <p>使用内联 <a textvalue="SVG" target="_self" href="https://www.w3cschool.cn/html5/html5-svg.html" link009994688339163504="1">SVG</a>
+
+                </p>
+            </li>
+            <li>
+                <p>使用 <a target="_blank" href="https://www.w3cschool.cn/css3/g94ojfll.html" link009994688339163504="1">CSS3 2D</a>/<a target="_blank" href="https://www.w3cschool.cn/css3/g5lhsflm.html" link009994688339163504="1">CSS 3D</a>
+
+                </p>
+            </li>
+        </ul>
+        <hr>
+         <h2>HTML5 使用 CSS3</h2>
+
+        <ul class=" list-paddingleft-2">
+            <li>
+                <p>新选择器</p>
+            </li>
+            <li>
+                <p>新属性</p>
+            </li>
+            <li>
+                <p>动画</p>
+            </li>
+            <li>
+                <p>2D/3D 转换</p>
+            </li>
+            <li>
+                <p>圆角</p>
+            </li>
+            <li>
+                <p>阴影效果</p>
+            </li>
+            <li>
+                <p>可下载的字体</p>
+            </li>
+        </ul>
+        <p>了解更多CSS3知识请查看本站的 <a textvalue="CSS3 教程。" target="_self" href="https://www.w3cschool.cn/css3" link009994688339163504="1">CSS3 教程。</a>
+
+        </p>
+        <hr>
+         <h2>语义要素</h2>
+
+        <p>HTML5 添加了很多语义元素如下所示：</p>
+        <table class="reference        ">
+            <tbody>
+                <tr>
+                    <th>标签</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>&lt;article&gt;</td>
+                    <td>定义页面独立的内容区域。</td>
+                </tr>
+                <tr>
+                    <td>&lt;aside&gt;</td>
+                    <td>定义页面的侧边栏内容。</td>
+                </tr>
+                <tr>
+                    <td>&lt;bdi&gt;</td>
+                    <td>允许您设置一段文本，使其脱离其父元素的文本方向设置。</td>
+                </tr>
+                <tr>
+                    <td>&lt;command&gt;</td>
+                    <td>定义命令按钮，比如单选按钮、复选框或按钮</td>
+                </tr>
+                <tr>
+                    <td>&lt;details&gt;</td>
+                    <td>用于描述文档或文档某个部分的细节</td>
+                </tr>
+                <tr>
+                    <td>&lt;dialog&gt;</td>
+                    <td>定义对话框，比如提示框</td>
+                </tr>
+                <tr>
+                    <td>&lt;summary&gt;</td>
+                    <td>标签包含 details 元素的标题</td>
+                </tr>
+                <tr>
+                    <td>&lt;figure&gt;</td>
+                    <td>规定独立的流内容（图像、图表、照片、代码等等）。</td>
+                </tr>
+                <tr>
+                    <td>&lt;figcaption&gt;</td>
+                    <td>定义 &lt;figure&gt; 元素的标题</td>
+                </tr>
+                <tr>
+                    <td>&lt;footer&gt;</td>
+                    <td>定义 section 或 document 的页脚。</td>
+                </tr>
+                <tr>
+                    <td>&lt;header&gt;</td>
+                    <td>定义了文档的头部区域</td>
+                </tr>
+                <tr>
+                    <td>&lt;mark&gt;</td>
+                    <td>定义带有记号的文本。</td>
+                </tr>
+                <tr>
+                    <td>&lt;meter&gt;</td>
+                    <td>定义度量衡。仅用于已知最大和最小值的度量。</td>
+                </tr>
+                <tr>
+                    <td>&lt;nav&gt;</td>
+                    <td>定义导航链接的部分。</td>
+                </tr>
+                <tr>
+                    <td>&lt;progress&gt;</td>
+                    <td>定义任何类型的任务的进度。</td>
+                </tr>
+                <tr>
+                    <td>&lt;ruby&gt;</td>
+                    <td>定义 ruby 注释（中文注音或字符）。</td>
+                </tr>
+                <tr>
+                    <td>&lt;rt&gt;</td>
+                    <td>定义字符（中文注音或字符）的解释或发音。</td>
+                </tr>
+                <tr>
+                    <td>&lt;rp&gt;</td>
+                    <td>在 ruby 注释中使用，定义不支持 ruby 元素的浏览器所显示的内容。</td>
+                </tr>
+                <tr>
+                    <td>&lt;section&gt;</td>
+                    <td>定义文档中的节（section、区段）。</td>
+                </tr>
+                <tr>
+                    <td>&lt;time&gt;</td>
+                    <td>定义日期或时间。</td>
+                </tr>
+                <tr>
+                    <td>&lt;wbr&gt;</td>
+                    <td>规定在文本中的何处适合添加换行符。</td>
+                </tr>
+            </tbody>
+        </table>
+         <h2>HTML5 表单</h2>
+
+        <p>新表单元素, 新属性，新输入类型，自动验证。</p>
+        <hr>
+         <h2>已移除元素</h2> 
+        <p>以下的 HTML 4.01 元素在HTML5中已经被删除:</p>
+        <ul>
+            <li>&lt;acronym&gt;</li>
+            <li>&lt;applet&gt;</li>
+            <li>&lt;basefont&gt;</li>
+            <li>&lt;big&gt;</li>
+            <li>&lt;center&gt;</li>
+            <li>&lt;dir&gt;</li>
+            <li>&lt;font&gt;</li>
+            <li>&lt;frame&gt;</li>
+            <li>&lt;frameset&gt;</li>
+            <li>&lt;noframes&gt;</li>
+            <li>&lt;strike&gt;</li>
+        </ul>
+        <hr>
+         <h2 class="tutheader">每一章中的实例</h2> 
+        <p>通过我们的 HTML 编辑器，您能够编辑 HTML，然后点击按钮来查看结果。</p>
+        <div class="example">
+             <h2 class="example">实例</h2>
+
+            <div class="example_code notranslate">&lt;!DOCTYPE HTML&gt;
+                <br>&lt;html&gt;
+                <br>&lt;body&gt;
+                <br>
+                <br>&lt;video width="320" height="240" controls&gt;
+                <br>&nbsp; &lt;source src="movie.mp4" type="video/mp4"&gt;
+                <br>&nbsp; &lt;source src="movie.ogg" type="video/ogg"&gt;
+                <br>&nbsp;你的浏览器不支持 video 标签。
+                <br>&lt;/video&gt;
+                <br>
+                <br>&lt;/body&gt;
+                <br>&lt;/html&gt;</div>
+            <br><a class="tryitbtn" target="_blank" showtry="1" href="https://www.w3cschool.cn/tryrun/showhtml/tryhtml5_video_bear" link009994688339163504="1">尝试一下 »</a>
+
+        </div>
+        <p><strong>点击 "尝试一下" 按钮查看在线运行结果。</strong>
+
+        </p>
+        <hr>
+         <h2>HTML5 - 新特性</h2>
+
+        <p>HTML5 中的一些有趣的新特性：</p>
+        <ul class=" list-paddingleft-2">
+            <li>
+                <p>用于绘画的 canvas 元素</p>
+            </li>
+            <li>
+                <p>用于媒介回放的 video 和 audio 元素</p>
+            </li>
+            <li>
+                <p>对本地离线存储的更好的支持</p>
+            </li>
+            <li>
+                <p>新的特殊内容元素，比如 article、footer、header、nav、section</p>
+            </li>
+            <li>
+                <p>新的表单控件，比如 calendar、date、time、email、url、search</p>
+            </li>
+        </ul>
+        <hr>
+         <h2>HTML5 浏览器支持</h2>
+
+        <p>最新版本的 Safari、Chrome、Firefox 以及 Opera 支持某些 HTML5 特性。Internet Explorer 9 将支持某些 HTML5 特性。</p>
+        <p>
+            <img src="./toc_w3cschool_files/201608171544491231.png" alt="">
+            <br>
+        </p>
+    </div>
+</div>
+<p>IE9 以下版本浏览器兼容HTML5的方法，使用百度静态资源的html5shiv包：</p><pre><span>&lt;!--[if lt IE9]&gt; 
+&lt;script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;</span></pre>
+
+<p>载入后，初始化新标签的CSS：</p><pre><span>/*html5*/</span><span>
+article</span><span>,</span><span>aside</span><span>,</span><span>dialog</span><span>,</span><span>footer</span><span>,</span><span>header</span><span>,</span><span>section</span><span>,</span><span>footer</span><span>,</span><span>nav</span><span>,</span><span>figure</span><span>,</span><span>menu</span><span>{</span><span>display</span><span>:</span><span>block</span><span>}</span></pre>
+
+<hr>
+
+<h2>HTML5 参考手册</h2>
+
+<p>在本站中你可以找到关于HTML5 的标签及属性描述，详细请点击 <a target="_blank" href="https://www.w3cschool.cn/htmltags" link009994688339163504="1">HTML5参考手册。</a>
+
+</p>
+<p>
+    <br>
+</p></div>
+<div style="clear:both"></div>
+</div>
+<!--控制本地字体主题样式-->
+<script type="text/javascript">
+var tempFontsize = $.cookie("fontsize");
+if (tempFontsize != undefined) {
+$("#pro-mian").addClass(tempFontsize);
+}
+</script>
+<!--我要赞赏-->
+<div class="project-sq"><div class="project-sq-info"><span>您的支持将鼓励我们做得更好</span></div><ul class="project-sq-avatar"><li><a href="javascript:;" title="Ternura." target="_blank"><img src="./toc_w3cschool_files/avatar_337445.jpg"></a></li></ul><div class="project-sq-btnarea"><a href="javascript:;">赞赏支持</a></div></div>
+<!--我要赞赏结束-->
+<!--我要评价-->
+<div id="evaluate-box"><span id="evaluates">以上内容是否对您有帮助：</span><span class="star_score"><span title="1分"></span><span title="2分"></span><span title="3分"></span><span title="4分"></span><span title="5分"></span></span></div>
+<!--评价结束-->
+<div class="content-links">
+<div class="next-link"><a href="https://www.w3cschool.cn/html5/g5nfhflc.html" title="下一篇：HTML5 浏览器支持">HTML5 浏览器支持</a> →</div>
+</div>
+<!--练习、出题、写笔记-->
+<div class="project-operation">
+<div class="pull-right">
+<a href="javascript:;" class="op-btn note-btn" onclick="openNote()"><i class="icon-pencil"></i>写笔记</a>
+</div>
+</div>
+<!--横版广告放置-->
+<div class="abox-item">    <div class="abox-content">    </div></div> 
+<!-- 笔记列表 -->
+<div class="notelist-box" style="display:none">
+<div class="notelist-head" onclick="openNoteList(this)">
+<span class="notelist-title">精选笔记</span>
+<i class="icon-circle-arrow-up"></i>
+</div>
+<div class="notelist-content" id="notelist_content" style="display: none;">
+</div>
+</div>
+<!--相关推荐|wiki推荐-->
+<div class="maylike">
+<h2 class="project-maylike-info">您可能还喜欢：</h2>
+<ul class="project-maylike-ul">
+<li><a href="https://www.w3cschool.cn/html5/html-5-webstorage.html" title="HTML5 Web 存储">HTML5 Web 存储</a></li>
+<li><a href="https://www.w3cschool.cn/html5/html-5-video.html" title="HTML5 视频">HTML5 视频</a></li>
+<li><a href="https://www.w3cschool.cn/html5/html5-ref-standardattributes.html" title="HTML5 标准属性">HTML5 标准属性</a></li>
+<li><a href="https://www.w3cschool.cn/html5/html-5-form-elements.html" title="HTML5 表单元素">HTML5 表单元素</a></li>
+<li><a href="https://www.w3cschool.cn/html5/html-5-form-input-types.html" title="HTML5 Input 类型">HTML5 Input 类型</a></li>
+<li><a href="https://www.w3cschool.cn/html5/html-5-audio.html" title="HTML5 音频">HTML5 音频</a></li>
+<li><a href="https://www.w3cschool.cn/html5/html-5-intro.html" title="HTML5 简介">HTML5 简介</a></li>
+<li><a href="https://www.w3cschool.cn/html5/de521qf0.html" title="HTML5 表单">HTML5 表单</a></li>
+</ul>
+</div>
+<!--相关推荐|wiki推荐 结束-->
+</div>
+<div class="navigation-box">
+<a href="https://www.w3cschool.cn/html5/g5nfhflc.html" title="下一篇：HTML5 浏览器支持" class="navigation navigation-next"><i class="icon-chevron-right"></i></a>
+</div>
+  </div>
+<div id="pro-footer">
+<div class="s-footer">
+<div class="s-footer-bottom">
+<p>Copyright © 2019 <a href="https://www.w3cschool.cn/" title="w3cschool">w3cschool.cn </a> All Rights Reserved. </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="toolbar">
+<div class="tool onlinenote" data-module="page">
+<div class="tool-inner">
+<div class="tool-icon"></div>
+<div>在线笔记</div>
+</div>
+</div>
+<div class="tool app">
+<div class="tool-inner">
+<div class="tool-icon"></div>
+<div>App下载</div>
+</div>
+<div class="tool-popover">
+<div class="tool-popover-inner">
+<div class="img"><img src="./toc_w3cschool_files/app-qrcode2.png" alt="App下载" width="140" height="140"></div>
+<p>扫描二维码</p>
+<p>下载编程狮App</p>
+</div>
+</div>
+</div>
+<div class="tool wechat">
+<div class="tool-inner">
+<div class="tool-icon"></div>
+<div>公众号</div>
+</div>
+<div class="tool-popover">
+<div class="tool-popover-inner">
+<div class="img"><img src="./toc_w3cschool_files/mp-qrcode.png" alt="微信公众号" width="140" height="140"></div>
+<p>编程狮公众号</p>
+</div>
+</div>
+</div>
+<div class="tool feedback" data-module="page" onclick="showDialogBox(this)">
+<div class="tool-inner">
+<div class="tool-icon"></div>
+<div>意见反馈</div>
+</div>
+</div>
+<div class="tool backtop" data-visibility="50">
+<div class="tool-inner">
+<div class="tool-icon"></div>
+<div>返回顶部</div>
+</div>
+</div>
+</div>
+
+<div class="feedback-Box" style="display: none;">
+<div class="feedback-Box-content" style="width: 800px;">
+<div class="feedback-Box-top">
+<span class="feedback-Box-title">意见反馈</span>
+<span onclick="closeDialogBox(this)" class="feedback-Box-close">X</span>
+</div>
+<ul>
+<li class="feedback-box">
+<div id="feedbackRadio" type="radio" name="feedbackType" data-value="0" style=""> 意见反馈：</div>
+<textarea name="reportInfo" id="elmaaa" class="feedback-text" rows="15" placeholder="请留下您宝贵的意见反馈吧。" style="width: 700px;height:200px;overflow:auto;"></textarea>
+<p>联系方式：</p>
+<input type="text" placeholder="留个联系方式呗..." name="reportAddress" class="radio-text" id="reportAddress" style="height: 30px;width: 200px;">
+</li>
+</ul>
+<button class="search-s" onclick="dialogSubmit(this)" id="reportSubmit">提交</button>
+</div>
+</div>
+
+<div id="note-start" style="display: none"></div>
+
+<div id="detail" style="display:none;">
+<div id="note-Dialog" class="note-Dialog">
+<div class="note-Box-content">
+<div class="ntitlebox">
+<input type="text" placeholder="" name="ntitle" class="ntitle" id="ntitle">
+</div>
+<div id="editorarea">
+<textarea name="ncontent" id="ncontent" class="ncontent" rows="15" placeholder="" style="width: 700px;height:200px;overflow:auto;"></textarea>
+</div>
+<p></p>
+<a class="closenote" href="https://www.w3cschool.cn/my/note" target="_blank">查看完整版笔记</a>
+<button class="notesubmit" id="notesubmit">保存</button>
+<button class="notebtn pull-right closenote" style="margin:20px 0">关闭</button>
+</div>
+</div>
+</div>
+
+<div class="report-Box" style="display: none;">
+<div class="report-Box-content">
+<div class="report-Box-top">
+<span class="report-Box-title">违规举报</span>
+<span onclick="closeReportBox(this)" class="report-Box-close">X</span>
+</div>
+<ul>
+<li class="radio-box">
+<input id="reportRadio" type="radio" name="reportType" value="1" checked="checked"> 广告等垃圾信息
+</li>
+<li class="radio-box">
+<input id="reportRadio" type="radio" name="reportType" value="2"> 不友善内容
+</li>
+<li class="radio-box">
+<input id="reportRadio" type="radio" name="reportType" value="3"> 违反法律法规的内容
+</li>
+<li class="radio-box">
+<input id="reportRadio" type="radio" name="reportType" value="4"> 不宜公开讨论的政治内容
+</li>
+<li class="radio-box" onclick="reportOther(this)">
+<input id="reportRadio" type="radio" name="reportType" value="0"> 其他
+<input type="text" class="radio-text" name="reportInfo" value="" placeholder="请填写您的举报理由。">
+</li>
+</ul>
+<button class="search-s" onclick="reportSubmit(this)" id="reportSubmit">提交</button>
+</div>
+</div>
+<div class="widget-body" data-type="project"></div>
+<div class="pay-area" data-static="//www.w3cschool.cn/statics"><div class="pay-tip-Box" style="display:none;"><div class="pay-tip-content"><div class="pay-tip-top"><span class="pay-tip-title">赞赏支持</span><span class="pay-tip-close">X</span></div><div class="pay-tip-body"><div class="pay-tip-price pay-tip-price-first"><a href="javascript:;" data-price="2" class="pay-tip-btn pay-tip-btn-ck">&nbsp;2元&nbsp;</a><a href="javascript:;" data-price="4" class="pay-tip-btn">&nbsp;4元&nbsp;</a><a href="javascript:;" data-price="8" class="pay-tip-btn">&nbsp;8元&nbsp;</a></div><div class="pay-tip-price"><a href="javascript:;" data-price="16" class="pay-tip-btn">16元</a><a href="javascript:;" data-price="32" class="pay-tip-btn">32元</a><a href="javascript:;" data-price="64" class="pay-tip-btn">64元</a></div><div class="pay-tip-paytype"><span>支付方式:</span><input type="radio" name="tiptype" checked="checked" value="ALIPAY"><img src="./toc_w3cschool_files/alipay.png"><input type="radio" name="tiptype" value="WXPAY"><img src="./toc_w3cschool_files/wechatpay.png"></div><div class="pay-tip-paytype "><span>余额支付:</span><input type="radio" name="tiptype" value="W3CPAY" disabled="disabled"><img src="./toc_w3cschool_files/w3cpay.png" class="img-gray"><input type="text" disabled="true" class="pay-tip-surplus" value="￥0.00"></div><div class="pay-fbi-waring"><span>特别提醒:本次支付为虚拟物品,不予退款,敬请谅解</span></div><div class="pay-tip-gopay"><a href="javascript:;">前往支付</a></div></div><div class="pay-tip-result" style="display:none;"><div class="pay-tip-result-title"><span>支付遇到问题?</span></div><div class="pay-tip-result-waring"><span><strong>温馨提示:</strong>支付完成前请不要关闭窗口,完成支付后请根据情况点击下面按钮</span></div><div class="pay-tip-result-btn"><a href="javascript:;" id="pay-success">赞赏成功</a><a href="javascript:;" id="pay-error">遇到问题</a></div></div></div></div></div>
+<div class="dialog-area"></div>
+<script src="./toc_w3cschool_files/shCore.min.js" type="text/javascript"></script>
+<script src="./toc_w3cschool_files/commonfooter.js" type="text/javascript"></script>
+<script src="./toc_w3cschool_files/project.view.js" type="text/javascript"></script>
+<script src="./toc_w3cschool_files/ajaxdo.core.js" type="text/javascript"></script>
+<script src="./toc_w3cschool_files/paypraise.js" type="text/javascript"></script>
+<script>
+var kn = {
+kename:'html5-intro',
+pename:'html5',
+ismenu:'0',
+ktitle:'开始学习HTML5',
+ktype:'kn',
+original:'1',
+uid:'0',
+};
+var book = {
+pename:'html5',
+bookname:'HTML5 教程'
+};
+
+var Gvar = {
+activityflag: ''
+};
+function isProjectLike(){
+
+if(kn.uid == '' || kn.uid == '0'){
+toastr.warning("您还未登录,请先登录!",'',{"positionClass": "toast-top-center"});
+return;
+}
+$.ajaxdo({
+url: "/project/islike/html5.html",
+type: "post",
+dataType: 'json',
+data: {},
+sync: false,
+success: function (data) {
+if (data.statusCode == 200) {
+$('.avatar-list').find('p').remove();
+$('.avatar-list').append('<a href="javascript:;" title="' + data.data + '"><img src="/attachments/avatar2/avatar_' + data.data + '.jpg" title=""></a>');
+var likecount = $("#likecount").text() * 1 + 1;
+$("#likecount").html(likecount);
+$(".btn-thumbs-up i").attr('class','icon-thumbs-up isdone');
+$("#likestatus").html('已赞');
+toastr.success(data.message,'',{"positionClass": "toast-top-center"});
+} else {
+toastr.warning(data.message,'',{"positionClass": "toast-top-center"});
+}
+}
+});
+}
+function isProjectStar(){
+if(kn.uid == '' || kn.uid == '0'){
+toastr.warning("您还未登录,请先登录!",'',{"positionClass": "toast-top-center"});
+return;
+}
+var type = $('#hbstar').attr('data-type');
+$.ajaxdo({
+url: "/project/star/html5.html",
+type: "post",
+dataType: 'json',
+data: {},
+success: function (data) {
+if(data.statusCode == 200){
+if (type == 'star') {
+$('#hbstar').html('<i class="icon-star isdone"></i><span>已收藏</span>');
+$('#hbstar').attr('data-type','rstar');
+toastr.success(data.message,'',{"positionClass": "toast-top-center"});
+} else {
+$('#hbstar').html('<i class="icon-star"></i><span>收藏</span>');
+$('#hbstar').attr('data-type','star');
+toastr.success(data.message,'',{"positionClass": "toast-top-center"});
+}
+}else{
+toastr.warning(data.message,'',{"positionClass": "toast-top-center"});
+}
+}
+});
+}
+$(function(){
+
+if(kn.kename != ''){
+ var lastviewUrl = '//'+window.location.host+'/'+kn.pename+'/'+kn.kename+'.html';
+localStorage.setItem("lastview_"+kn.pename, lastviewUrl);
+}
+
+$(document).on("click",function(){
+$(".docblur").hide();
+});
+
+$(".onlinenote").show();
+
+if(location.hash !== ""){ // 修复锚点定位失效的问题
+setTimeout(function(){
+location.href=location.hash;
+},300);
+}
+
+if(Gvar.activityflag > 0){ // 开启了活动
+$.ajax({
+url:"/getActivity",
+type:"get",
+dataType:"json",
+success:function(msg){
+function loadad(content){
+var tpl = '<div class="activiey-area">'+
+'<div class="activiey-bg"></div>'+
+'<div class="activiey-main">'+
+'<span class="close-btn"></span> <div style="max-height:500px;max-width:570px;">'+content+'</div></div>'+
+'</div>';
+
+$("body").append(tpl);
+
+$(".activiey-main .close-btn").on("click",function(){
+$(".activiey-area").hide();
+});
+
+}
+if(msg.statusCode < 300){
+console.log(msg.data);
+// 写入cookie
+$.cookie("activity_showed", 1);
+loadad(msg.data.wincontent);
+toastr.success(msg.message);
+}else{
+toastr.warning(msg.message);
+}
+}
+});
+}
+var kename = kn.kename;
+var fid    = "15420";
+var uid = '0';
+$(document).on('keyup',function(e){
+var keyCode = e.keyCode;
+var prev,next;
+if(keyCode == 37){ // 上一篇
+prev = $(".navigation-prev");
+if(prev.length > 0 && !prev.is(":hidden")){
+location.href = prev.attr("href");
+}
+}
+if(keyCode == 39){ // 下一篇
+next = $(".navigation-next");
+if(next.length > 0 && !next.is(":hidden")){
+location.href = next.attr("href");
+}
+}
+});
+/*开启计时 准备记录积分*/
+var vcreditfull = $.cookie('ypre_vcreditfull');
+//console.log(vcreditfull);
+if(vcreditfull == undefined && uid != '0' && uid != ''){
+setTimeout(function(){
+$.ajax({
+url:"/project/setViewCredit",
+type:"post",
+data:{kename:kename},
+dataType:"json",
+success:function(msg){
+var statusCode = {
+'200':'success',
+'400':'warning',
+};
+var toastrType = statusCode[msg.statusCode];
+if(msg.statusCode == 300 || msg.statusCode == 400){
+return;
+}
+toastr[toastrType](msg.message);
+}
+});
+},30000);
+}
+hljs.initHighlightingOnLoad();//高亮代码
+window._bd_share_config={"common":{"bdSnsKey":{},bdPopupOffsetTop:"5"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/plugins/baidushare/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+});
+$(".toggle-dropdown").on('click',function(e){
+e.stopPropagation();
+if ($(this).next().is(":hidden")){
+$(this).next().show();    
+}else{
+$(this).next().hide();     
+}
+});
+
+$(".set-dropdown-menu").on("click",function(e){
+e.stopPropagation();
+});
+function getviewkn(){
+var usernamestr ='';
+$.ajax({
+url:"/my/knowledge/getViewkn?pename="+book.pename,
+dataType:"json",
+success:function(msg){
+var objli,objtt;
+for(var p in msg){
+objli = $("#nestable_handbook").find(".dd-item[data-id='"+msg[p]['kename']+"']");
+if(objli.attr("ismenu") != 1){
+objli.addClass("readed").find("a").attr("title","上次浏览时间:("+msg[p]['lasttime']+")");
+}
+}
+}
+}); 
+}
+function openNote(){
+$(".onlinenote").trigger("click");
+}
+</script>
+<script type="text/javascript">
+  // 如果需要给后台返值的话，返回 $(".star_score span.select").size()的值即可。
+$(function(){      
+//生成5个星星
+for(var i=0;i<5;i++){
+var _html = '<span title="'+parseInt(i+1)+'分"></span>';
+$(".star_score").append(_html);
+}
+//鼠标滑过，星星背景图片改成选中图片
+$(".star_score span").hover(function(){
+var index = $(this).index();
+for(var i = 0; i <=index; i++){
+$(".star_score span").eq(i).addClass("active");
+}
+//鼠标移除去掉激活效果
+},function(){
+$(".star_score span").removeClass("active");
+});
+var tourist =- parseInt(10000000*Math.random());//给游客随机id
+//星星点击，这颗星星之前的所有星星加上选中效果
+$(".star_score span").on("click",function(){
+var x = $(this).index();
+$(".star_score span").removeClass('select');
+for (var i = 0; i <= x; i++) {
+$(".star_score span").eq(i).addClass('select');
+};
+evaluate(x+1,tourist);
+})
+})
+function evaluate(scores,tourist){
+var pid   = '50';
+var aid   = '196';
+$.ajax({
+url:"/index/evaluate",
+type:"post",
+data:{
+score : scores,
+pid   : pid, 
+aid   : aid,
+uid   : tourist,
+title : book.bookname,
+mintitle:kn.ktitle,
+},
+dataType:"json",
+success:function(msg){
+if(msg.statusCode==200){
+toastr.success(msg.message);
+}
+}
+});
+}
+function openNoteList(obj){
+var display=$('#notelist_content').css('display');
+if(display=='none'){
+$(obj).children('i').addClass('icon-circle-arrow-up');
+$(obj).children('i').removeClass('icon-circle-arrow-down');
+$('#notelist_content').show();
+}else{
+$(obj).children('i').addClass('icon-circle-arrow-down');
+$(obj).children('i').removeClass('icon-circle-arrow-up');
+$('#notelist_content').hide();
+} 
+}
+getNotelist();
+//笔记点赞
+function islikeNote(obj,kmid){
+toastr.warning('请先登录');
+}
+  //   function getNotelist(){
+  //    $.ajax({
+// url:"/index/getNotelist",
+// type:"post",
+// data:{
+// pename:book.pename,
+// kename:kn.kename,
+// },
+// dataType:"json",
+// success:function(msg){
+//  var ob = eval(msg.data.notelist);
+//  if(ob.length>0){
+//     $('#notelist_content').show();
+//       $('.notelist-box').show();
+//    var str='<ul>';
+ //              for(var o in ob){  
+ //                str+='<li class="notelist-item"><div class="notelist-author"><a href="/u/'+ob[o].uid+'"><img src="/attachments/avatar2/avatar_'+ob[o].uid+'.jpg" class="avatar"><span class="name">'+ob[o].creator+'</span></a></div><div class="notelist-wrap content-intro">'+ob[o].kcontent+'</div></li>';
+ //              }
+ //              str+='</ul>';  
+ //              $("#notelist_content").html(str);
+  //                 AjaxDo.bindDialog();
+//  }else{
+//   $('.notelist-box').hide();
+//  }
+//    }
+// });
+  //   }
+</script>
+
+</body></html>

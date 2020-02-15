@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://www.python3.vip/doc/tutorial/o/linux/01/ -->
+<html lang="zh" class="js fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.33333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1em}.svg-inline--fa.fa-stack-2x{height:2em;width:2em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}</style><link href="http://www.python3.vip/feed.xml" type="application/atom+xml" rel="alternate" title="白月黑羽教Python Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="./jump_files/push.js"></script><script src="./jump_files/hm.js"></script><script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="./jump_files/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+<!-- begin _includes/seo.html --><title>Linux 简介和安装 - 白月黑羽教Python</title>
+<!-- <meta name="description" content="白月黑羽专注Python及web开发相关知识，最大的特色是：用大量视频讲解难点，用大量练习巩固知识，帮你快点学会Python和Web开发"> -->
+<meta name="description" content="白月黑羽Python教程，用大量视频讲解难点和练习。非常适合零基础新手入门Python3。内容包括自动化、数据分析、图形界面、web开发">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="白月黑羽教Python">
+<meta property="og:title" content="Linux 简介和安装">
+<meta property="og:url" content="http://www.python3.vip/doc/tutorial/o/linux/01/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://www.python3.vip/doc/tutorial/o/linux/01/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "白月黑羽",
+      "url": "http://www.python3.vip",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<meta name="Keywords" content="白月黑羽,Python,python3教程,python基础,python入门教程,django教程,Web开发,web后端,selenium教程,web自动化, web全栈">
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dbe4b81610105438254516b658833659";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<!-- automatically push web page to baidu -->
+<script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https'){
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+  
+    
+<!-- end custom head snippets -->
+  <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+  <body class="layout--single" style="margin-bottom: 160px;">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://www.python3.vip/">白月黑羽教Python</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://www.python3.vip/doc/tutorial/python/0001/">Python基础</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://www.python3.vip/doc/tutorial/python/level2/file_dir/">Python进阶</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://www.python3.vip/doc/tutorial/django/01/">Web开发</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://www.python3.vip/doc/tutorial/selenium/01/">自动化和性能测试</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://www.python3.vip/doc/tutorial/o/linux/01/">Linux和MySQL</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://www.python3.vip/doc/prac/python/0001/">练习作业</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://www.python3.vip/doc/faq/python/home/">常见问题</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button" count="0" style="">
+          <span class="visually-hidden">显示章节</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox">
+  <label for="ac-toc">显示章节</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Linux</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/" class="active">Linux简介和安装</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/02/" class="">文本编辑</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/03/" class="">文件系统</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/04/" class="">目录和文件操作</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/05/" class="">用户管理和文件权限</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/06/" class="">进程管理</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/07/" class="">重定向和管道</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/08/" class="">网络管理</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/linux/09/" class="">常用命令</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">MySQL</span>
+        
+
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/01/" class="">MySQL简介</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/02/" class="">Linux上安装MySQL</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/03/" class="">数据库和表</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/04/" class="">插入表记录</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/05/" class="">查询、修改、删除表记录</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/06/" class="">程序访问数据库服务</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/07/" class="">索引和外键</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="http://www.python3.vip/doc/tutorial/o/mysql/08/" class="">事务</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+  <article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Linux 简介和安装">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Linux 简介和安装
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right">
+            <nav class="toc">
+              <header><h4 class="nav__title"><svg class="svg-inline--fa fa-file-alt fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="file-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg><!-- <i class="fas fa-file-alt"></i> --> 本文目录</h4></header>
+              <ul class="toc__menu">
+  <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#为什么要学习linux">为什么要学习Linux</a></li>
+  <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#安装linux">安装Linux</a>
+    <ul>
+      <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#视频讲解-虚拟机安装centos">视频讲解-虚拟机安装CentOS</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#登录操作">登录操作</a>
+    <ul>
+      <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#主机直接登录">主机直接登录</a></li>
+      <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#远程登录">远程登录</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#shell和linux命令">shell和Linux命令</a>
+    <ul>
+      <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#注销退出linux系统">注销（退出Linux系统）</a></li>
+      <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#关机与重启">关机与重启</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.python3.vip/doc/tutorial/o/linux/01/#作业和练习">作业和练习</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+
+        <div class="content">
+        <h2 id="为什么要学习linux">为什么要学习Linux</h2>
+
+<p><a href="https://www.bilibili.com/video/av74957552?p=1" target="_blank/">点击这里，边看视频讲解，边学习以下内容</a></p>
+
+<p>Linux 和我们熟知的 Windows 一样，都是 <code class="highlighter-rouge">操作系统</code> 。</p>
+
+<p>那么操作系统又是什么？</p>
+
+<p>简单说，操作系统是 管理 计算机硬件 和 所有应用程序  的 <code class="highlighter-rouge">系统软件</code> 。</p>
+
+<p>它对下管理机器所有的硬件，对上管理着应用程序。</p>
+
+<p>负责加载、运行、调度、终止应用程序，并提供编程接口和服务给应用程序调用（使用各种硬件资源），完成各种各样的功能。</p>
+
+<p><br></p>
+
+<p>现在的软件系统，通常都有服务端，比如：京东、淘宝、微信、美团、网易等等，都有个服务端系统提供数据信息。</p>
+
+<p>这些web 服务 80% 以上都是运行在Linux操作系统上。</p>
+
+<p>大家如果成为软件工程师，开发服务端程序，基本都是要在Linux上运行</p>
+
+<p>而且IT职位面试的时候，Linux相关操作，是常常会被问到的。</p>
+
+<p>所以你应该学会使用Linux操作系统。</p>
+
+<p>本课程，就是讲解Linux的常见操作。</p>
+
+<p><br></p>
+
+<p>在开始学习之前，我们首先要知道Linux这个单词怎么读。很多人用了好多年Linux， 这个词的读音都是错的。</p>
+
+<p>Linux之父Linus Torvalds 是这样发音的 /’lɪ.nəks/</p>
+
+<p><br></p>
+
+<h2 id="安装linux">安装Linux</h2>
+
+<p>Linux 就是一个操作系统， 和大家熟悉的 Windows 一样。</p>
+
+<p>所以我们要使用它，就需要先安装到电脑上。</p>
+
+<p>你可以安装在一台单独的电脑上， 也可以安装在虚拟机里面。</p>
+
+<p>虚拟机，就是在你的电脑上用软件模拟的电脑（是的，软件可以模拟硬件的运行环境， 比如你在电脑上玩过街机游戏吗？这些就是电脑软件模拟的街机硬件，运行街机游戏），这样你就可以在模拟的电脑里面 安装其他的操作系统， 比如Linux。</p>
+
+<p>这样我们就在一个程序窗口里面运行另外一个操作系统了。</p>
+
+<p>Windows操作系统有 Windows 7 、Windows 10、 Windows server 2016 等等众多的版本。</p>
+
+<p>Linux 版本更多，比如 Ubuntu、RedHat、CentOS、Debian、Fedora等，这些都是Linux系统的不同发行版本.</p>
+
+<p>服务器开发使用 CentOS 比较多，我们教程就以 Centos 为例讲解如何安装。</p>
+
+<p><br></p>
+
+<p>运行虚拟机软件的操作系统 我们称之为  <code class="highlighter-rouge">host操作系统</code>， 虚拟机 软件里面的操作系统称之为  <code class="highlighter-rouge">guest操作系统</code></p>
+
+<p>本文中的 host 操作系统是 Windows 10 ， 而 guest 操作系统是 CentOS7</p>
+
+<p><br></p>
+
+<p>虚拟机安装 CentOS 分为两步</p>
+
+<ul>
+  <li>
+    <p>创建虚拟机（就是虚拟电脑）</p>
+  </li>
+  <li>
+    <p>在虚拟机上安装 CentOS 操作系统</p>
+  </li>
+</ul>
+
+<p>在虚拟机安装CentOS，大家需要下载 CentOS的安装光盘镜像文件。</p>
+
+<p>在国外下载比较慢，推荐到网易的镜像站点下载</p>
+
+<p><a href="http://mirrors.163.com/centos/" target="_blank">点击这里访问网易镜像站点</a></p>
+
+<h3 id="视频讲解-虚拟机安装centos">视频讲解-虚拟机安装CentOS</h3>
+
+<hr>
+
+<ul>
+  <li>安装CentOS ：  <code class="highlighter-rouge">第 1 步</code></li>
+</ul>
+
+<p><a href="https://www.bilibili.com/video/av74957552?p=2" target="_blank/">点击这里，看视频讲解</a></p>
+
+<p><br></p>
+
+<ul>
+  <li>安装CentOS ：  <code class="highlighter-rouge">第 2 步</code></li>
+</ul>
+
+<p><a href="https://www.bilibili.com/video/av74957552?p=3" target="_blank/">点击这里，看视频讲解</a></p>
+
+<p><br></p>
+
+<ul>
+  <li>安装CentOS ：  <code class="highlighter-rouge">第 3 步</code></li>
+</ul>
+
+<p><a href="https://www.bilibili.com/video/av74957552?p=4" target="_blank/">点击这里，看视频讲解</a></p>
+
+<p><br></p>
+
+<ul>
+  <li>安装CentOS ：  <code class="highlighter-rouge">第 4 步</code></li>
+</ul>
+
+<p><a href="https://www.bilibili.com/video/av74957552?p=5" target="_blank/">点击这里，看视频讲解</a></p>
+
+<p><br></p>
+
+<h2 id="登录操作">登录操作</h2>
+
+<p><a href="https://www.bilibili.com/video/av74957552?p=6" target="_blank/">点击这里，边看视频讲解，边学习以下内容</a></p>
+
+<p>Linux 是支持多用户的操作系统，什么叫多用户操作系统？</p>
+
+<p>就是说，多个人都可以使用安装了Linux的同一台电脑。 其中有管理员用户（比如安装过程中就输入密码的那个root用户），普通用户。</p>
+
+<p>不同的人有不同的权限，所以我们需要在Linux操作系统上创建多个账号给他们使用，对应不同的权限。</p>
+
+<p>所以用户使用系统前必须先输入用户名密码登录，这样Linux才知道你是哪个用户。</p>
+
+<p>Linux用户可以有如下两种登录方式：</p>
+
+<ul>
+  <li>
+    <p>Linux主机直接登录</p>
+  </li>
+  <li>
+    <p>在另一台电脑远程登录</p>
+  </li>
+</ul>
+
+<h3 id="主机直接登录">主机直接登录</h3>
+
+<p>主机直接登录就是用户直接到安装了Linux的那台计算机上登录。</p>
+
+<p>可以在图形桌面上登录，也可以是命令行界面下登录</p>
+
+<p>图形桌面登录界面如下：</p>
+
+<p><img src="./jump_files/36462795_57963460-fec54400-7956-11e9-9a3f-36eec7a0bc60.png" alt="image"></p>
+
+<p>命令行登录界面如下：</p>
+
+<p><img src="./jump_files/36257654_57592094-65b5b800-7567-11e9-9b8a-8b56a71e8466.png" alt="image"></p>
+
+<p>登录时，系统会提示你输入账号，并且要求你输入对应的密码。</p>
+
+<p>登录成功后，会显示命令行提示符，如下</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@localhost ~]# 
+</code></pre></div></div>
+
+<p>大家只要 在后面输入Linux命令即可进行操作了。</p>
+
+<p>大家可能习惯了使用Windows图形界面，但是在使用Linux的时候，往往更方便的是用命令行，输入各种Linux命令进行操作。</p>
+
+<p>面试的时候，问的也都是 各种常见的命令，所以大家要学会在命令行下进行操作。</p>
+
+<h3 id="远程登录">远程登录</h3>
+
+<p>工作中运行被测系统的Linux主机通常不在自己的身边，而是在实验室里面，或者在远程机房（比如 阿里云主机），经常跑到主机所在的地方进行登录是不方便的。</p>
+
+<p>这时我们通常采用远程登录的方式，通过网络登录访问Linux主机。</p>
+
+<p>我们后面的课程讲解，大多是远程登录完成，请大家学会使用远程登录。</p>
+
+<p><br></p>
+
+<p>要进行远程登录，我们需要一个远程登录的软件，最常用的就是 PuTTY。</p>
+
+<p>大家可以<a href="https://the.earth.li/~sgtatham/putty/0.73/w64/putty.exe" target="_blank">点击这里，下载PuTTY</a></p>
+
+<p>如何使用PuTTY进行远程登录？ 请观看下面的讲解视频。</p>
+
+<p><br></p>
+
+<h2 id="shell和linux命令">shell和Linux命令</h2>
+
+<p>我们在远程终端是通过Linux命令（command）来操作计算机的。</p>
+
+<p>而Linux主机上谁来接受我们输入的命令，并执行命令的呢？  那就是 Shell程序。</p>
+
+<p>Shell有很多种，标准shell (sh), Bourne Again SHell (bash), Korn shell (ksh), C shell (csh)，现在主流的Linux的缺省是bash，所以我们主要针对它进行说明。</p>
+
+<p>Shell在后面的章节还会讲到。目前我们只要知道Linux通过Shell程序来接收我们的命令，并且执行我们的命令。</p>
+
+<p>命令通常是一个个的可执行程序，比如 ps、ls、netstat等等</p>
+
+<p>在Shell提示符下，就可以输入Linux命令。Linux命令的基本格式如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>command  参数1  参数2  ...  参数n
+</code></pre></div></div>
+
+<p>Linux命令由一个命令（command）和零到多个参数构成，命令和参数之间，以及参数与参数之间用空格隔开。</p>
+
+<p>Linux的命令区分大小写，且命令和参数之间必须隔开。</p>
+
+<p>比如，下面执行了两条 Linux命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls /tmp
+ls /Tmp
+</code></pre></div></div>
+
+<p>但tmp和Tmp是两个不同的目录。</p>
+
+<p>如果这样写   <code class="highlighter-rouge">ls/tmp</code>  ，没有空格隔开的话，‘ls/tmp’ 整个 会被Shell当做一条没参数的命令。</p>
+
+<h3 id="注销退出linux系统">注销（退出Linux系统）</h3>
+
+<p>在每次使用完后，一定要进行注销（或者说退出），以防他人通过你的帐号进入系统。</p>
+
+<p>在Linux提示符下，运行exit命令，即可退出本次登录</p>
+
+<p>或直接按组合键  <code class="highlighter-rouge">Ctrl+d</code> 。</p>
+
+<h3 id="关机与重启">关机与重启</h3>
+
+<p>Linux主机的关机方法为：</p>
+
+<p>root用户登录后，输入命令 poweroff 表示立即关机。</p>
+
+<p>Linux主机的重启方法为：</p>
+
+<p>root用户登录后，输入命令 reboot 表示立即关机。</p>
+
+<p><br></p>
+
+<h2 id="作业和练习">作业和练习</h2>
+
+<p>请根据本节教程，在虚拟机上，安装 CentOS 7 。</p>
+
+<p>安装完成后，练习 使用 Putty 远程 登录 和 本机直接登录。</p>
+
+<p>练习命令  退出登录、和关机 操作。</p>
+
+<p><br></p>
+
+<p class="text-center" style="color: #c71111">扫码分享给朋友，一起学更有动力哦</p>
+
+<div id="code" class="text-center"><canvas width="200" height="200"></canvas></div>
+
+<p><br></p>
+
+<div style="width:100%;text-align:center;" id="ggaos">
+        
+<div id="ggao1">
+    <a href="http://www.python3.vip/doc/adv/vipcourse">
+        <img src="./jump_files/gg03.png" title="点击查看详情" width="540" height="300">
+    </a>
+    <br><br>
+    <p class="text-center" style="color: #c71111">点击上方图片，查看课程详情</p>
+    <p class="text-center" style="color: #c71111">咨询 QQ：1750696907 | 微信：18502556834 </p>
+   
+</div>
+
+<!--
+<div  id='ggao2'>
+    <a href="http://www.python3.vip/doc/adv/techsupport">
+        <img src='http://cdn1.python3.vip/imgs/etc/gg04.png' 
+            title="点击查看详情" />
+    </a>
+    <br>
+   
+</div>
+-->
+
+<br>
+<div id="ggao3">
+    <p class="text-center" style="color: #147bcc">领取 Selenium 全套练习讲解视频</p>
+    <p class="text-center" style="color: #147bcc">微信加白月黑羽账号 18502556834 为好友，  
+把指定视频分享到朋友圈，1天后，即可领取 </p>
+</div>
+
+</div>
+
+<p><br></p>
+
+<script src="./jump_files/jquery.min.js"></script>
+
+<script src="./jump_files/jquery.qrcode.min.js"></script>
+
+<script>
+        
+    $("#code").qrcode({ 
+        //render: "table", //table方式 
+        width: 200, //宽度 
+        height:200, //高度 
+        text: window.location.href 
+    });
+
+    if (true){
+        let  toAdd1 = `        
+<div  id='ggao1'>
+    <a href="http://www.python3.vip/doc/adv/vipcourse">
+        <img src='http://cdn1.python3.vip/imgs/gg03.png' 
+            title="点击查看详情" 
+            width="540" 
+            height="300"/>
+    </a>
+    <br><br>
+    <p class="text-center" style='color: #c71111'>点击上方图片，查看课程详情</p>
+    <p class="text-center" style='color: #c71111'>咨询 QQ：1750696907 | 微信：18502556834 </p>
+   
+</div>
+
+<!--
+<div  id='ggao2'>
+    <a href="http://www.python3.vip/doc/adv/techsupport">
+        <img src='http://cdn1.python3.vip/imgs/etc/gg04.png' 
+            title="点击查看详情" />
+    </a>
+    <br>
+   
+</div>
+-->
+
+<br>
+<div  id='ggao3'>
+    <p class="text-center" style='color: #147bcc'>领取 Selenium 全套练习讲解视频</p>
+    <p class="text-center" style='color: #147bcc'>微信加白月黑羽账号 18502556834 为好友，  
+把指定视频分享到朋友圈，1天后，即可领取 </p>
+</div>
+
+`
+        
+        let gg = document.getElementById("ggaos");
+        gg.insertAdjacentHTML('beforeend',toAdd1);
+    }
+    
+</script>
+
+<p><br></p>
+
+<p><a href="http://www.python3.vip/doc/tutorial/o/linux/02/" class="btn btn--primary align-center">下一页</a></p>
+
+
+        </div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- adv1 -->
+<!-- <div id="box" style="
+height: 120px;
+color: #fff;				
+background-size: 50%;
+background-color:#2892d0;
+line-height: 46px;
+letter-spacing: 4px;
+margin: 1em
+">
+
+
+    <h2 style="text-align: center;">
+    <strong><span style='color: gold;font-size: 1.4em;'>担心</span></strong>
+    撑不过试用期 ？<strong><span style='color: gold; font-size: 1.4em;'>害怕</span></strong>
+    项目任务完不成？</h2>
+
+  
+
+    <h4 style="text-align: center;">
+    <strong><span style='color: gold;'>白月黑羽来帮您</span></strong>
+    疑难解答、毕设课设、工具开发、顺利渡过试用期</h4>
+
+
+</div> -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- 
+      <li><strong>关注:</strong></li>
+     -->
+    
+    
+    
+    
+    
+    <!-- <li><a href="http://www.python3.vip/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2020 南京役物科技有限公司 版权所有 
+    &nbsp;&nbsp;  
+    <a href="http://www.miitbeian.gov.cn/">  苏ICP备19007943号-1 </a>   &nbsp;&nbsp;
+    <span>QQ交流群：177726069</span> &nbsp;&nbsp;
+    <span>微信：18502556834</span> &nbsp;&nbsp;
+    <!-- <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=29249083&amp;site=qq&amp;menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:29249083:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a> -->
+</div>
+
+      </footer>
+    </div>
+
+    <!-- <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside> -->
+
+    
+  <!-- <script src="http://www.python3.vip/assets/js/main.min.js"></script> -->
+  <script src="./jump_files/main.min.js"></script>
+  <!-- <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+  <script src="./jump_files/all.js"></script>
+
+
+
+
+
+
+
+
+  
+</body></html>

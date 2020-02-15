@@ -1,0 +1,21 @@
+#amumarrycss{width:94%;height:48px;margin:3px auto;padding:3px 3px;border:#ddedf7 1px dashed;background:#f1f9fd color:#006699;}
+#listimg {width:35%;height:100%;overflow:hidden;float: left;}
+#listimg img {width:44px;height:44px; border: 2px solid;border-color:#fff;}
+#list_con {width:65%;height:100%;font-size:12px;line-height:24px;overflow:hidden;float: right;}
+
+.tipmy {margin:5px auto 0px;padding:10px 0;border:#ddedf7 1px;background:#FFF0F5 url(../images/bg.gif) left bottom no-repeat;color:#FF3030;}
+.tipmy img {width:16px;height:16px;border:0;margin:0 6px 0 15px;}
+.tipmy ul {list-style:none;}
+.tipmy ul li {height:22px;line-height:22px;margin:10px 10px;}
+
+.tipdv {margin:5px auto 0px;padding:10px 0;border:#000000 1px;background:#6c6c6c url(../images/bgdv.gif) right bottom no-repeat;color:#fff;}
+.tipdv img {width:16px;height:16px;border:0;margin:0 6px 0 15px;}
+.tipdv ul {list-style:none;}
+.tipdv ul li {height:22px;line-height:22px;margin:10px 10px;}
+
+.datalist { zoom: 1; }
+.datalist table { margin: auto; width: 96%; border: 1px solid #E6E7E1;table-layout: fixed;}
+.datalist td { padding: 4px 5px; border: 1px solid #E6E7E1; font-weight: 400;text-align: center; }
+.datalist { margin-bottom: 10px; }
+.datalist .fixtable { table-layout: fixed; }
+.colplural, .colplural td { background-color: #F5F5F5; height: 20px; text-align: center; }

